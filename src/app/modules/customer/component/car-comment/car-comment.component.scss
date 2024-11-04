@@ -1,0 +1,62 @@
+.car-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.child {
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    transition: transform 0.2s;
+    border: 1px solid #eaeaea;
+}
+
+.child:hover {
+    transform: scale(1.02); /* Tăng kích thước nhẹ khi hover */
+}
+
+.car-image {
+    height: 160px; /* Giữ chiều cao hình ảnh */
+    width: 80%; /* Chiếm toàn bộ chiều rộng của cột */
+    border-radius: 10px;
+    object-fit: cover; /* Đảm bảo hình ảnh không bị biến dạng */
+    margin-bottom: 10px; /* Giảm khoảng cách giữa ảnh và mô tả */
+}
+
+.car-title {
+    cursor: pointer;
+    color: #108ee9;
+    font-size: 1.65em; /* Tăng kích thước tiêu đề */
+    margin: 5px 0; /* Giảm khoảng cách trên và dưới tiêu đề */
+    transition: color 0.2s;
+}
+
+.car-title:hover {
+    // text-decoration: underline; /* Gạch chân tiêu đề khi hover */
+    color: #1e90ff; /* Màu sắc mới khi hover */
+}
+
+.car-description {
+    margin-bottom: 10px;
+    font-size: 1.1em; /* Tăng kích thước chữ mô tả */
+    color: #555; /* Màu sắc chữ nhẹ hơn */
+}
+
+.car-details {
+    margin-top: 10px;
+    color: #333;
+}
+
+hr {
+    margin: 10px 0;
+    border: 0;
+    border-top: 1px solid #eaeaea;
+}
+
+@media (max-width: 768px) {
+    .child {
+        width: 100%; /* Đảm bảo chiếm toàn bộ chiều rộng trên màn hình nhỏ */
+    }
+}

@@ -1,0 +1,148 @@
+<div id="content">
+<div class="inner-content">
+    <nz-spin [nzSpinning]="isSpinning" [nzSize]="'large'" nzTip="Working...">
+        <div class="dashboard-filter">
+            <div class="filter-grid" [formGroup]="searchCarForm">
+                <div class="filter-select-dropdown filter-fields-width">
+                    <nz-form-item>
+                        <nz-form-label nzFor="gender">Brand</nz-form-label>
+                        <nz-form-control nzErrorTip="This Input is Required!">
+                            <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a brand" formControlName="brand">
+                                <nz-option *ngFor="let brand of listOfBrands" nzLabel="{{brand}}" nzValue="{{brand}}"></nz-option>
+                            </nz-select>
+                        </nz-form-control>
+                    </nz-form-item>
+
+                    <nz-form-item>
+                        <nz-form-label nzFor="studentClass">Type</nz-form-label>
+                        <nz-form-control nzErrorTip="This Input is Required">
+                            <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a Type" formControlName="type">
+                                <nz-option *ngFor="let type of listOfType" nzLabel="{{type}}" nzValue="{{type}}"></nz-option>
+                            </nz-select>
+                        </nz-form-control>
+                    </nz-form-item>
+
+                    <nz-form-item>
+                        <nz-form-label nzFor="gender">Color</nz-form-label>
+                        <nz-form-control nzErrorTip="This Input is required!">
+                            <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a Color" formControlName="color">
+                                <nz-option *ngFor="let color of listOfColor" nzLabel="{{color}}" nzValue="{{color}}"></nz-option>
+                            </nz-select>
+                        </nz-form-control>
+                    </nz-form-item>
+
+                    <nz-form-item>
+                        <nz-form-label nzFor="studentClass">Transmission</nz-form-label>
+                        <nz-form-control nzErrorTip="This Input is Required!">
+                            <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a Transmission" formControlName="transmission">
+                              <nz-option *ngFor="let transmission of listOfTransmission" nzLabel="{{transmission}}" nzValue="{{transmission}}"></nz-option>
+                            </nz-select>
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+                <div class="filter-select-dropdown filter-fields-width">
+                    <button class="filterBtn" nz-button nzType="primary" (click)="searchCar()">Search Car</button>
+                </div>
+            </div>
+        </div>
+    </nz-spin>
+</div>
+</div>
+
+<div id="content"><div class="car-result-container" style="background-color: #f8f8f8;">
+  <div class="car-item" *ngFor="let car of cars">
+    <div class="car-image">
+      <img [src]="car.processedImg" alt="Car image" />
+    </div>
+    <div class="car-info">
+      <h2>{{ car.brand }} - {{ car.name }}</h2>
+      <p class="description">{{ car.description }}</p>
+      <hr>
+      <div class="car-details">
+        <h5>
+          Price: <b>${{ car.price }}</b> |
+          Color: <b>{{ car.color }}</b> |
+          Transmission: <b>{{ car.transmission }}</b> |
+          Type: <b>{{ car.type }}</b> |
+          Year: <b>{{ car.year | date: 'yyyy' }}</b>
+        </h5>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- CSS Styling -->
+<style>
+  .car-result-container {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .car-item {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+
+  .car-item:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+  }
+
+  .car-image img {
+    width: 300px; /* Tăng chiều rộng của ảnh */
+    height: 200px; /* Tăng chiều cao của ảnh */
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease; /* Thêm hiệu ứng hover cho ảnh */
+  }
+
+  .car-image img:hover {
+    transform: scale(1.05); /* Phóng to nhẹ khi hover để thêm phần bắt mắt */
+  }
+
+  .car-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+  }
+
+  .car-info h2 {
+    color: #108ee9;
+    font-size: 22px; /* Tăng kích thước tiêu đề cho nổi bật hơn */
+    margin-bottom: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+
+  .car-info .description {
+    font-size: 16px; /* Điều chỉnh kích thước mô tả cho dễ đọc hơn */
+    color: #666;
+    margin-bottom: 15px;
+  }
+
+  .car-details h5 {
+    font-size: 14px;
+    color: #333;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .car-details b {
+    margin-right: 10px;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 10px 0;
+  }
+</style>

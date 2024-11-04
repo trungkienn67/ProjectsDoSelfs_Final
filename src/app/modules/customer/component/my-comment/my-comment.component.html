@@ -1,0 +1,25 @@
+<div id="content">
+<nz-spin [nzSpinning]="isSpinning" [nzSize]="'large'" nzTip="Working....">
+    <nz-table #basicTable [nzData]="comments" [nzPageSize]="20" [nzShowPagination]="'false'">
+      <thead>
+        <tr>
+          <th style="font-weight: bolder; color: #003973;">Name</th>
+          <th style="font-weight: bolder; color: #003973;">My Comment</th>
+          <th style="font-weight: bolder; color: #003973;">Rate</th>
+          <th style="font-weight: bolder; color: #003973;">Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let comment of basicTable.data">
+          <td>{{comment.username}}</td>
+          <td>{{comment.body}}</td>
+          <!-- Sử dụng nz-rate để hiển thị sao -->
+          <td>
+            <nz-rate [ngModel]="comment.rating" [nzDisabled]="true"></nz-rate>
+          </td>
+          <td>{{comment.createdDate | date: 'MMM d, y'}}</td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </nz-spin>
+</div>

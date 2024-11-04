@@ -1,0 +1,81 @@
+<div id="content">
+<div style="background-color: white; min-height: 91vh; padding: 20px;">
+  <div class="child">
+      <div nz-row>
+          <div nz-col nzSpan="8">
+              <img class="profile" style="height: 180px; width: 250px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);" [src]="cars.processedImg" alt="profile">
+          </div>
+          <div nz-col nzSpan="16">
+              <h2 style="cursor: pointer; color: #108ee9; font-size: 24px; margin-bottom: 10px;">
+                  {{cars.brand}} - {{cars.name}}
+              </h2>
+              <p style="font-size: 16px;">{{cars.description}}</p>
+              <hr />
+              <h5 style="font-size: 18px;">Price: <b>${{cars.price}}</b> - Color: <b>{{cars.color}}</b> - Transmission: <b>{{cars.transmission}}</b> - Type: <b>{{cars.type}}</b> - carOwner: <b>{{cars.carOwner}}</b> - Year: <b>{{cars.year | date: 'yyyy'}}</b></h5>
+              <hr />
+          </div>
+      </div>
+
+      <!-- Phần đánh giá Rating -->
+      <form class="container" [formGroup]="commentForm">
+          <div nz-row>
+              <div nz-col nzSpan="24">
+                  <h3 style="margin-top: 20px;">Rate this car:</h3>
+                  <nz-rate formControlName="rating" nzAllowHalf></nz-rate>
+              </div>
+          </div>
+
+          <hr>
+
+          <!-- Phần bình luận Comment -->
+          <div nz-row>
+              <div nz-col nzSpan="24">
+                  <h3 style="margin-top: 20px;">Comments:</h3>
+                  <nz-form-item>
+                      <nz-form-control>
+                          <textarea nz-input placeholder="Add a comment" formControlName="body" style="width: 100%; height: 80px; border-radius: 5px;"></textarea>
+                      </nz-form-control>
+                      <button nz-button nzType="primary" (click)="postComment()" style="margin-top: 10px;">Submit</button>
+                  </nz-form-item>
+              </div>
+          </div>
+      </form>
+  </div>
+</div>
+</div>
+
+<style>
+  .child {
+      padding: 20px;
+      width: 100%; /* Chiếm 100% chiều rộng */
+      max-width: 960px; /* Giới hạn chiều rộng tối đa */
+      background-color: white;
+      box-shadow: 1px 1px 15px -7px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      margin: 20px auto; /* Căn giữa */
+  }
+
+  h2:hover {
+      text-decoration-line: underline;
+  }
+
+  hr {
+      margin-top: 15px;
+      margin-bottom: 15px;
+  }
+
+  nz-rate {
+      margin-top: 10px;
+  }
+
+  textarea {
+      padding: 10px; /* Thêm padding cho textarea */
+      border: 1px solid #ddd; /* Thêm viền */
+      resize: none; /* Không cho phép thay đổi kích thước */
+  }
+
+  button {
+      padding: 10px 20px; /* Thêm padding cho nút */
+      border-radius: 5px; /* Bo góc cho nút */
+  }
+</style>

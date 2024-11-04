@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="card" *ngIf="cars">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="preview">
+                        <img [src]="cars.processedImg" alt="{{cars.name}}" />
+                    </div>
+                </div>
+                <div class="col-md-6 details">
+                    <h3 class="product-title">{{cars.name}}</h3>
+                    <p class="product-description">{{cars.description}}</p>
+                    <h4 class="price">Current Price: <span>${{cars.price}}</span></h4>
+                    <p><strong>Brand:</strong> {{cars.brand}}</p>
+                    <p><strong>Type:</strong> {{cars.type}}</p>
+                    <p><strong>Transmission:</strong> {{cars.transmission}}</p>
+                    <p><strong>Colors:</strong> {{cars.color}}</p>
+                    <p><strong>Year:</strong> {{cars.year | date:'yyyy'}}</p>
+                    <p><strong>carOwner:</strong> {{cars.carOwner}}</p>
+                    <div class="actions">
+                        <button routerLink="/home" routerLinkActive="active">Back</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

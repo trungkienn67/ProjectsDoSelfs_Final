@@ -1,0 +1,54 @@
+.comments-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .comments-table th, 
+  .comments-table td {
+    padding: 12px 15px;
+    text-align: left;
+  }
+  
+  .comments-table th {
+    background-color: #f5f5f5;
+    font-weight: bold;
+    color: #003973;
+    text-transform: uppercase;
+    border-bottom: 2px solid #e0e0e0;
+  }
+  
+  .comments-table tr {
+    background-color: #fff;
+  }
+  
+  .comments-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .comments-table .username {
+    font-weight: bold;
+    color: #003973;
+  }
+  
+  .comments-table .rating {
+    display: flex;
+  }
+  
+  .comments-table .fa {
+    color: #f5a623; /* Màu ngôi sao vàng */
+    margin-right: 4px;
+  }
+  
+  .comments-table .comment-body {
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .comments-table .date {
+    font-size: 14px;
+    color: #888;
+    text-align: left;
+    white-space: nowrap;
+  }
+  

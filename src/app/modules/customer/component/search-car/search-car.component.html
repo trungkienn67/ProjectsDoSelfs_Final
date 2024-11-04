@@ -1,0 +1,137 @@
+<div id="content">
+<div class="inner-content">
+    <nz-spin [nzSpinning]="isSpinning" [nzSize]="'large'" nzTip="Working...">
+        <div class="dashboard-filter">
+            <div class="filter-grid" [formGroup]="searchCarForm">
+                <div class="filter-select-dropdown filter-fields-width">
+                    <nz-form-item>
+                        <nz-form-label nzFor="gender">Brand</nz-form-label>
+                        <nz-form-control nzErrorTip="This Input is Required!">
+                            <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a brand" formControlName="brand">
+                                <nz-option *ngFor="let brand of listOfBrands" nzLabel="{{brand}}" nzValue="{{brand}}"></nz-option>
+                            </nz-select>
+                        </nz-form-control>
+                    </nz-form-item>
+
+                    <nz-form-item>
+                        <nz-form-label nzFor="studentClass">Type</nz-form-label>
+                        <nz-form-control nzErrorTip="This Input is Required">
+                            <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a Type" formControlName="type">
+                                <nz-option *ngFor="let type of listOfType" nzLabel="{{type}}" nzValue="{{type}}"></nz-option>
+                            </nz-select>
+                        </nz-form-control>
+                    </nz-form-item>
+
+                    <nz-form-item>
+                        <nz-form-label nzFor="gender">Color</nz-form-label>
+                        <nz-form-control nzErrorTip="This Input is required!">
+                            <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a Color" formControlName="color">
+                                <nz-option *ngFor="let color of listOfColor" nzLabel="{{color}}" nzValue="{{color}}"></nz-option>
+                            </nz-select>
+                        </nz-form-control>
+                    </nz-form-item>
+
+                    <nz-form-item>
+                        <nz-form-label nzFor="studentClass">Transmission</nz-form-label>
+                        <nz-form-control nzErrorTip="This Input is Required!">
+                            <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a Transmission" formControlName="transmission">
+                                <nz-option *ngFor="let transmission of listOfTranmission" nzLabel="{{transmission}}" nzValue="{{transmission}}"></nz-option>
+                            </nz-select>
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+                <div class="filter-select-dropdown filter-fields-width">
+                    <button class="filterBtn" nz-button nzType="primary" (click)="searchCar()">Search Car</button>
+                </div>
+            </div>
+        </div>
+    </nz-spin>
+</div>
+</div>
+
+<div id="content">
+<div class="car-container">
+    <div class="car-item" *ngFor="let car of cars">
+        <div nz-row>
+            <div nz-col nzSpan="8" class="car-image">
+                <img [src]="car.processedImg" alt="Car Image" />
+            </div>
+            <div nz-col nzSpan="16" class="car-details">
+                <h2 class="car-title">
+                    {{car.brand}} - {{car.name}}
+                </h2>
+                <p class="car-description">{{car.description}}</p>
+                <hr />
+                <h5 class="car-info">
+                    Price: <b>${{car.price}}</b> - 
+                    Color: <b>{{car.color}}</b> - 
+                    Transmission: <b>{{car.transmission}}</b> - 
+                    Type: <b>{{car.type}}</b> - 
+                    Year: <b>{{car.year | date: 'yyyy'}}</b> - 
+                    Owner: <b>{{car.carOwner}}</b>
+                </h5>
+                <hr />
+                <a routerLink="/customer/book/{{car.id}}" nz-button nzType="primary" class="book-button">Book Now</a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<style>
+.car-container {
+    background-color: #ffffff !important; /* Bảo đảm màu nền trắng */
+    padding: 20px; /* Thêm khoảng cách cho các phần tử con */
+}
+
+.car-item {
+    background-color: #f8f8f8; /* Màu nền nhạt cho mỗi item */
+    border-radius: 10px; /* Bo tròn các góc */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Đổ bóng cho item */
+    margin-bottom: 20px; /* Khoảng cách giữa các item */
+    padding: 20px; /* Khoảng cách bên trong của mỗi item */
+    transition: transform 0.3s; /* Hiệu ứng khi hover */
+}
+
+.car-item:hover {
+    transform: translateY(-5px); /* Di chuyển lên nhẹ khi hover */
+}
+
+.car-image img {
+    height: 200px; /* Chiều cao của ảnh */
+    width: 95%; /* Đặt chiều rộng của ảnh chiếm toàn bộ không gian */
+    border-radius: 10px; /* Bo tròn góc ảnh */
+    object-fit: cover; /* Cắt ảnh theo tỷ lệ */
+}
+
+.car-title {
+    cursor: pointer;
+    color: #108ee9; /* Màu chữ tiêu đề */
+    margin: 10px 0; /* Khoảng cách trên và dưới tiêu đề */
+}
+
+.car-description {
+    font-size: 14px; /* Kích thước chữ mô tả */
+    color: #666; /* Màu chữ mô tả */
+    margin: 10px 0; /* Khoảng cách trên và dưới mô tả */
+}
+
+.car-info {
+    font-size: 14px; /* Kích thước chữ cho thông tin xe */
+    color: #333; /* Màu chữ cho thông tin xe */
+}
+
+.book-button {
+    text-decoration: none; /* Bỏ gạch chân cho nút */
+    padding: 10px 20px; /* Khoảng cách bên trong nút */
+    border-radius: 5px; /* Bo tròn các góc nút */
+    background-color: #108ee9; /* Màu nền nút */
+    color: white; /* Màu chữ nút */
+    transition: background-color 0.3s; /* Hiệu ứng khi hover */
+}
+
+.book-button:hover {
+    background-color: #0056b3; /* Tối màu nút khi hover */
+}
+
+</style>

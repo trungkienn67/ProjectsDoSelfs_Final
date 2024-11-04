@@ -1,0 +1,39 @@
+<div id="content">
+<nz-spin [nzSpinning]="isSpinning" [nzSize]="'large'" nzTip="Working...">
+    <nz-table #basicTable [nzData]="carFix" [nzPageSize]="20" [nzShowPagination]="false" class="modern-table">
+        <thead>
+            <tr>
+                <th class="header-style">Image</th>
+                <th class="header-style">Car Name</th>
+                <th class="header-style">Description</th>
+                <th class="header-style">Status</th>
+                <th class="header-style">Action</th>
+                <th class="header-style">Show Payment</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let carFixs of basicTable.data" class="row-style">
+                <td>
+                    <img class="profile-img" [src]="carFixs.processedImg" alt="Car Image">
+                </td>
+                <td>{{carFixs.carName}}</td>
+                <td>{{carFixs.description}}</td>
+                <td>
+                    <strong [ngClass]="{'status-fixed': carFixs.carFixStatus === 'FIXED', 'status-hasfixed': carFixs.carFixStatus === 'HASFIXED'}">
+                        {{carFixs.carFixStatus}}
+                    </strong>
+                </td>
+                <td>
+                    <div class="action-buttons">
+                        <button nz-button  class="btn-rounded fixed-button" (click)="changeCarFixStatus(carFixs.id, 'FIXED')"> FIXED </button>
+                        <button nz-button  class="btn-rounded hasfixed-button" (click)="changeCarFixStatus(carFixs.id, 'HASFIXED')"> HASFIXED </button>
+                    </div>
+                </td>
+                <td>
+                    <button nz-button class="btn-payment" routerLink="/admin/show-payment/{{carFixs.id}}">Show Payment</button>
+                </td>
+            </tr>
+        </tbody>
+    </nz-table>
+</nz-spin>
+</div>

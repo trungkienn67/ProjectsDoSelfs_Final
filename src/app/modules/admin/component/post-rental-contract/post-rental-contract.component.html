@@ -1,0 +1,70 @@
+<div id="content">
+<div class="post-rental-contract-container">
+  <h2>Post Rental Contract</h2>
+  
+  <!-- Form bắt đầu -->
+  <form [formGroup]="postForm" (ngSubmit)="postRentalContract()">
+    <!-- Trường Book a Car ID -->
+    <div class="form-group">
+      <label for="bookACarId">Book a Car ID</label>
+      <input
+        id="bookACarId"
+        formControlName="bookACarId"
+        nz-input
+        placeholder="Enter the Book a Car ID"
+      />
+      <div *ngIf="postForm.get('bookACarId')?.invalid && postForm.get('bookACarId')?.touched" class="error">
+        Book a Car ID is required.
+      </div>
+    </div>
+
+    <!-- Trường Maintenance Terms -->
+    <div class="form-group">
+      <label for="maintenanceTerms">Maintenance Terms</label>
+      <textarea
+        id="maintenanceTerms"
+        formControlName="maintenanceTerms"
+        nz-input
+        placeholder="Enter the maintenance terms"
+        rows="3"
+      ></textarea>
+      <div *ngIf="postForm.get('maintenanceTerms')?.invalid && postForm.get('maintenanceTerms')?.touched" class="error">
+        Maintenance Terms are required.
+      </div>
+    </div>
+
+    <!-- Trường Usage Terms -->
+    <div class="form-group">
+      <label for="usageTerms">Usage Terms</label>
+      <textarea
+        id="usageTerms"
+        formControlName="usageTerms"
+        nz-input
+        placeholder="Enter the usage terms"
+        rows="3"
+      ></textarea>
+      <div *ngIf="postForm.get('usageTerms')?.invalid && postForm.get('usageTerms')?.touched" class="error">
+        Usage Terms are required.
+      </div>
+    </div>
+
+    <!-- Trường Termination Terms -->
+    <div class="form-group">
+      <label for="terminationTerms">Termination Terms</label>
+      <textarea
+        id="terminationTerms"
+        formControlName="terminationTerms"
+        nz-input
+        placeholder="Enter the termination terms"
+        rows="3"
+      ></textarea>
+      <div *ngIf="postForm.get('terminationTerms')?.invalid && postForm.get('terminationTerms')?.touched" class="error">
+        Termination Terms are required.
+      </div>
+    </div>
+
+    <!-- Nút Submit -->
+    <button nz-button nzType="primary" [disabled]="postForm.invalid">Submit</button>
+  </form>
+</div>
+</div>

@@ -1,0 +1,143 @@
+<div id="content"><div class="update-car-form-container" style="margin-top: 100px; padding: 30px; background-color: #f5f5f5; border-radius: 10px; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); max-width: 600px; margin: auto;">
+    <nz-spin [nzSpinning]="isSpinning" [nzSize]="'large'" nzTip="Đang xử lý...">
+        <h2 style="text-align: center; color: #333; margin-bottom: 30px;">Cập Nhật Thông Tin Xe</h2>
+        <form nz-form [formGroup]="updateForm" class="car-form">
+            <!-- File Upload -->
+            <div class="file-upload-container" style="text-align: center; margin-bottom: 30px;">
+                <label class="file-upload-label">
+                    <span>Chọn Hình Ảnh Xe</span>
+                    <input type="file" nz-button nzType="primary" accept="image/x-png, image/gif,image/jpeg" (change)="onFileSelected($event)">
+                </label>
+                <div *ngIf="imagePreview" class="image-preview" style="margin-top: 20px;">
+                    <div class="circle-image">
+                        <img [src]="imagePreview" alt="Hình ảnh mới" class="preview-image"/>
+                    </div>
+                </div>
+                <div *ngIf="existingImage" class="image-preview" style="margin-top: 20px;">
+                    <div class="circle-image">
+                        <img [src]="existingImage" alt="Hình ảnh hiện tại" class="preview-image"/>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Brand Select -->
+            <nz-form-item>
+                <nz-form-control nzHasFeedback nzErrorTip="Hãy chọn thương hiệu">
+                    <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Chọn thương hiệu" formControlName="brand" style="width: 100%;">
+                        <nz-option *ngFor="let brand of listOfBrands" nzLabel="{{brand}}" nzValue="{{brand}}"></nz-option>
+                    </nz-select>
+                </nz-form-control>
+            </nz-form-item>
+
+            <!-- Name Input -->
+            <nz-form-item>
+                <nz-form-control nzHasFeedback nzErrorTip="Tên xe không được bỏ trống">
+                    <input nz-input placeholder="Tên Xe" formControlName="name" style="width: 100%;" />
+                </nz-form-control>
+            </nz-form-item>
+
+            <!-- Type Select -->
+            <nz-form-item>
+                <nz-form-control nzHasFeedback nzErrorTip="Hãy chọn loại xe">
+                    <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Chọn loại xe" formControlName="type" style="width: 100%;">
+                        <nz-option *ngFor="let type of listOfType" nzLabel="{{type}}" nzValue="{{type}}"></nz-option>
+                    </nz-select>
+                </nz-form-control>
+            </nz-form-item>
+
+            <!-- Transmission Select -->
+            <nz-form-item>
+                <nz-form-control nzHasFeedback nzErrorTip="Hãy chọn kiểu truyền động">
+                    <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Chọn kiểu truyền động" formControlName="transmission" style="width: 100%;">
+                        <nz-option *ngFor="let transmission of listOfTranmission" nzLabel="{{transmission}}" nzValue="{{transmission}}"></nz-option>
+                    </nz-select>
+                </nz-form-control>
+            </nz-form-item>
+
+            <!-- Color Select -->
+            <nz-form-item>
+                <nz-form-control nzHasFeedback nzErrorTip="Hãy chọn màu sắc">
+                    <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Chọn màu sắc" formControlName="color" style="width: 100%;">
+                        <nz-option *ngFor="let color of listOfColor" nzLabel="{{color}}" nzValue="{{color}}"></nz-option>
+                    </nz-select>
+                </nz-form-control>
+            </nz-form-item>
+
+            <!-- Year Picker -->
+            <nz-form-item>
+                <nz-form-control nzHasFeedback nzErrorTip="Hãy chọn năm sản xuất">
+                    <nz-year-picker nzPlaceHolder="Năm sản xuất" formControlName="year" style="width: 100%;"></nz-year-picker>
+                </nz-form-control>
+            </nz-form-item>
+
+            <!-- Price Input -->
+            <nz-form-item>
+                <nz-form-control nzHasFeedback nzErrorTip="Giá không được bỏ trống">
+                    <input nz-input placeholder="Giá" formControlName="price" style="width: 100%;" />
+                </nz-form-control>
+            </nz-form-item>
+
+            <!-- Description Textarea -->
+            <nz-form-item>
+                <nz-form-control nzHasFeedback nzErrorTip="Mô tả không được bỏ trống">
+                    <textarea rows="3" nz-input placeholder="Mô tả" formControlName="description" style="width: 100%;"></textarea>
+                </nz-form-control>
+            </nz-form-item>
+
+            <nz-form-item>
+                <nz-form-control nzHasFeedback nzErrorTip="Mô tả không được bỏ trống">
+                    <textarea rows="3" nz-input placeholder="Mô tả" formControlName="carOwner" style="width: 100%;"></textarea>
+                </nz-form-control>
+            </nz-form-item>
+
+
+            <!-- Submit Button -->
+            <div style="text-align: center; margin-top: 20px;">
+                <button nz-button [nzType]="'primary'" (click)="updateCar()" class="update-button" style="width: 100%; height: 50px; font-size: 16px;">Cập Nhật</button>
+            </div>
+        </form>
+    </nz-spin>
+</div>
+</div>
+
+<style>
+    .update-car-form-container {
+        background-color: #ffffff;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        margin: auto;
+    }
+
+    .circle-image {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        margin: auto;
+    }
+
+    .preview-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .update-button {
+        background-color: #007bff;
+        border-radius: 25px;
+        color: white;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+    }
+
+    .update-button:hover {
+        background-color: #0056b3;
+    }
+
+    nz-form-item {
+        margin-bottom: 20px;
+    }
+</style>

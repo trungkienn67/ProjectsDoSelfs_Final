@@ -1,0 +1,165 @@
+<!-- <body  *ngIf="!isCustomerLoggedIn && !isAdminLoggedIn">
+  <header>
+      <nav>
+        <div class="nav__header">
+          <div class="nav__logo">
+            <a href="#">RentalX</a>
+          </div>
+          <div class="nav__menu__btn" id="menu-btn">
+            <i class="ri-menu-line"></i>
+          </div>
+        </div>
+        <ul class="nav__links" id="nav-links">
+          <li><a href="/home">Home</a></li>
+          <li class="nav__links__btn">
+            <button  class="btn">Sign Up</button>
+          </li>
+          <li class="nav__links__btn">
+            <button  class="btn">Sign In</button>
+          </li>
+        </ul>
+        <div class="nav__btns">
+          <button class="btn btn__primary" routerLink="/register" routerLinkActive="active">Sign Up</button>
+          <button class="btn btn__secondary" routerLink="/login" routerLinkActive="active">Sign In</button>
+        </div>
+      </nav>
+      <div class="section__container header__container" id="home">
+        <div class="header__image">
+          <img src="assets/header.png" alt="header" />
+        </div>
+        <div class="header__content">
+          <h1>Looking to save more on your rental car?</h1>
+          <p>
+            Discover RentalX car rental aoptions in India with Rent a Car Select
+            from a range of car options and local specials.
+          </p>
+          <div class="header__links">
+            <a href="#">
+              <img src="assets/store.jpg" alt="app store" />
+            </a>
+            <a href="#">
+              <img src="assets/play.png" alt="play" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+    </body> -->
+  
+  <!-- Customer -->
+    <!-- <body *ngIf="isCustomerLoggedIn">
+      <header>
+          <nav>
+            <div class="nav__header" >
+              <div class="nav__logo">
+                <a href="#">RentalX</a>
+              </div>
+              <div class="nav__menu__btn" id="menu-btn">
+                <i class="ri-menu-line"></i>
+              </div>
+            </div>
+  
+            <div class="nav__btns">
+              <button class="btn btn__primary" routerLink="/customer/dashboard" routerLinkActive="active">Home</button>
+              <button class="btn btn__primary" routerLink="/customer/my_bookings" routerLinkActive="active">My Bookings</button>
+              <button class="btn btn__primary" routerLink="/customer/my-comment" routerLinkActive="active">My Comments</button>
+              <button class="btn btn__primary" routerLink="/customer/cars/search" routerLinkActive="active">Search Car</button>
+              <button class="btn btn__primary" routerLink="/customer/car-fix" routerLinkActive="active">Car Fix</button>
+              <button class="btn btn__primary" routerLink="/customer/comments" routerLinkActive="active">Comment</button>
+              <button class="btn btn__primary" (click)="logout()">Logout</button>
+            </div>
+          </nav>
+          <div class="section__container header__container" id="home">
+            <div class="header__image">
+              <img src="assets/header.png" alt="header" />
+            </div>
+            <div class="header__content">
+              <h1>Looking to save more on your rental car?</h1>
+              <p>
+                Discover RentalX car rental aoptions in India with Rent a Car Select
+                from a range of car options and local specials.
+              </p>
+              <div class="header__links">
+                <a href="#">
+                  <img src="assets/store.jpg" alt="app store" />
+                </a>
+                <a href="#">
+                  <img src="assets/play.png" alt="play" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </header>
+        </body> -->
+  
+  
+  <!-- Admin -->
+        <!-- <body *ngIf="isAdminLoggedIn">
+          <header>
+              <nav>
+                <div class="nav__header" >
+                  <div class="nav__logo">
+                    <a href="#">RentalX</a>
+                  </div>
+                  <div class="nav__menu__btn" id="menu-btn">
+                    <i class="ri-menu-line"></i>
+                  </div>
+                </div>
+      
+                <div class="nav__btns">
+                  <button class="btn btn__primary" routerLink="/admin/dashboard" routerLinkActive="active">List Cars</button>
+                  <button class="btn btn__primary" routerLink="/admin/car" routerLinkActive="active">Add Car</button>
+                  <button class="btn btn__primary" routerLink="/admin/bookings" routerLinkActive="active">Bookings</button> -->
+                  
+                  <!-- Contract Dropdown Menu -->
+                  <!-- <div class="dropdown">
+                    <button class="btn btn__primary dropdown-toggle" id="contractMenu" aria-expanded="false">
+                      <a class="dropdown-item" routerLink="/admin/post-contract/:carId" routerLinkActive="active">Post Contract</a>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="contractMenu">
+                      <li><a class="dropdown-item" routerLink="/admin/contract" routerLinkActive="active">Contract List</a></li>
+                    </ul>
+                  </div> -->
+                  <!-- Contract Dropdown Menu -->
+                  <!-- <div class="dropdown">
+                    <button class="btn btn__primary dropdown-toggle" id="contractMenu" aria-expanded="false">
+                      <a class="dropdown-item" routerLink="/admin/rental-contract/:rentalContractId" routerLinkActive="active">Contract Rental</a>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="contractMenu">
+                      <li><a class="dropdown-item" routerLink="/admin/rental-contract" routerLinkActive="active">Contract Rental List</a></li>
+                    </ul>
+                  </div>
+          
+                  <button class="btn btn__primary" routerLink="/admin/all-comment" routerLinkActive="active">Comment</button>
+                  <button class="btn btn__primary" routerLink="/admin/car-fix" routerLinkActive="active">Car Fix</button>
+                  <button class="btn btn__primary" routerLink="/admin/car-status" routerLinkActive="active">Car Status</button>
+                  <button class="btn btn__primary" routerLink="/admin/search" routerLinkActive="active">Search Car</button>
+                  <button class="btn btn__primary" (click)="logout()">Logout</button>
+                </div>
+              </nav>
+              <div class="section__container header__container" id="home">
+                <div class="header__image">
+                  <img src="assets/header.png" alt="header" />
+                </div>
+                <div class="header__content">
+                  <h1>Looking to save more on your rental car?</h1>
+                  <p>
+                    Discover RentalX car rental aoptions in India with Rent a Car Select
+                    from a range of car options and local specials.
+                  </p>
+                  <div class="header__links">
+                    <a href="#">
+                      <img src="assets/store.jpg" alt="app store" />
+                    </a>
+                    <a href="#">
+                      <img src="assets/play.png" alt="play" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </header>
+            </body> -->
+
+  <app-navbar></app-navbar>
+<router-outlet></router-outlet>
+<app-footer></app-footer>

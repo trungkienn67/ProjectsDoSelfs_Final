@@ -1,0 +1,27 @@
+<div id="content">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<nz-spin [nzSpinning]="isSpinning" [nzSize]="'large'" nzTip="Loading comments...">
+  <table class="comments-table">
+    <thead>
+      <tr>
+        <th>User name</th>
+        <th>Rating</th>
+        <th>Comments</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let comment of comments">
+        <td class="username">{{ comment.username }}</td>
+        <td class="rating">
+          <span *ngFor="let star of [].constructor(5); let i = index">
+            <i class="fa" [ngClass]="{'fa-star': comment.rating > i, 'fa-star-o': comment.rating <= i}"></i>
+          </span>
+        </td>
+        <td class="comment-body">{{ comment.body }}</td>
+        <td class="date">{{ comment.createdDate | date: 'MMM d, y' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</nz-spin>
+</div>

@@ -1,0 +1,22 @@
+<section class="card-container" *ngIf="carFixs">
+    <table class="table-layout">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Car Name</th>
+                <th>Description</th>
+                <th>User Post</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="card-img">
+                    <img [src]="carFixs.processedImg" alt="Car Image">
+                </td>
+                <td>{{ carFixs.carName }}</td>
+                <td>{{ carFixs.description }}</td>
+                <td>{{ carFixs.username }}</td>
+            </tr>
+        </tbody>
+    </table>
+</section>

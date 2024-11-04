@@ -1,0 +1,160 @@
+<div id="content">
+<div class="post-contract-container">
+  <form nz-form [formGroup]="postForm" (ngSubmit)="postContracts(postForm.value.carId)" class="contract-form">
+    <h2 class="contract-title">Hợp Đồng Cho Thuê Xe</h2>
+
+    <!-- Thông tin các bên -->
+    <h3 class="section-title">Thông Tin Các Bên</h3>
+    <nz-form-item>
+      <nz-form-label [nzFor]="'lessorName'" nzRequired>Tên bên cho thuê</nz-form-label>
+      <nz-form-control nzErrorTip="Vui lòng nhập tên bên cho thuê">
+        <input nz-input formControlName="lessorName" id="lessorName" placeholder="Tên bên cho thuê" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzFor]="'lesseeName'" nzRequired>Tên bên thuê</nz-form-label>
+      <nz-form-control nzErrorTip="Vui lòng nhập tên bên thuê">
+        <input nz-input formControlName="lesseeName" id="lesseeName" placeholder="Tên bên thuê" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzFor]="'lesseeIdCard'" nzRequired>CMND/CCCD bên thuê</nz-form-label>
+      <nz-form-control nzErrorTip="Vui lòng nhập CMND/CCCD">
+        <input nz-input formControlName="lesseeIdCard" id="lesseeIdCard" placeholder="CMND/CCCD" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzFor]="'lesseeAddress'" nzRequired>Địa chỉ bên thuê</nz-form-label>
+      <nz-form-control nzErrorTip="Vui lòng nhập địa chỉ">
+        <input nz-input formControlName="lesseeAddress" id="lesseeAddress" placeholder="Địa chỉ" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzFor]="'lesseePhone'" nzRequired>Số điện thoại bên thuê</nz-form-label>
+      <nz-form-control nzErrorTip="Vui lòng nhập số điện thoại">
+        <input nz-input formControlName="lesseePhone" id="lesseePhone" placeholder="Số điện thoại" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <h3 class="section-title">Thông Tin Xe</h3>
+    <nz-form-item>
+      <nz-form-label [nzFor]="'carId'" nzRequired>ID xe</nz-form-label>
+      <nz-form-control nzErrorTip="Vui lòng chọn ID xe">
+        <nz-select formControlName="carId" id="carId" placeholder="Chọn ID xe">
+          <!-- <option *ngFor="let car of cars" [value]="car.id">{{ car.id }}</option> -->
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+    
+    <nz-form-item>
+      <nz-form-label [nzFor]="'carName'" nzRequired>Tên xe</nz-form-label>
+      <nz-form-control nzErrorTip="Vui lòng nhập tên xe">
+        <input nz-input formControlName="carName" id="carName" placeholder="Tên xe" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <!-- Thời gian thuê -->
+    <h3 class="section-title">Thời Gian Thuê</h3>
+    <nz-form-item>
+      <nz-form-label [nzFor]="'rentalStartDate'" nzRequired>Ngày bắt đầu thuê</nz-form-label>
+      <nz-form-control nzErrorTip="Vui lòng chọn ngày bắt đầu">
+        <input nz-input type="date" formControlName="rentalStartDate" id="rentalStartDate" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzFor]="'rentalEndDate'" nzRequired>Ngày kết thúc thuê</nz-form-label>
+      <nz-form-control nzErrorTip="Vui lòng chọn ngày kết thúc">
+        <input nz-input type="date" formControlName="rentalEndDate" id="rentalEndDate" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <!-- Địa điểm giao nhận xe -->
+    <h3 class="section-title">Địa Điểm Giao Nhận Xe</h3>
+    <nz-form-item>
+      <nz-form-label [nzFor]="'pickupLocation'" nzRequired>Địa điểm nhận xe</nz-form-label>
+      <nz-form-control nzErrorTip="Vui lòng nhập địa điểm nhận xe">
+        <input nz-input formControlName="pickupLocation" id="pickupLocation" placeholder="Địa điểm nhận xe" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzFor]="'returnLocation'" nzRequired>Địa điểm trả xe</nz-form-label>
+      <nz-form-control nzErrorTip="Vui lòng nhập địa điểm trả xe">
+        <input nz-input formControlName="returnLocation" id="returnLocation" placeholder="Địa điểm trả xe" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <!-- Giá thuê và các khoản phí -->
+    <h3 class="section-title">Giá Thuê và Các Khoản Phí</h3>
+    <nz-form-item>
+      <nz-form-label [nzFor]="'rentalPricePerDay'" nzRequired>Giá thuê mỗi ngày</nz-form-label>
+      <nz-form-control nzErrorTip="Vui lòng nhập giá thuê">
+        <input nz-input type="number" formControlName="rentalPricePerDay" id="rentalPricePerDay" placeholder="Giá thuê mỗi ngày" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzFor]="'deposit'" nzRequired>Tiền đặt cọc</nz-form-label>
+      <nz-form-control nzErrorTip="Vui lòng nhập tiền đặt cọc">
+        <input nz-input type="number" formControlName="deposit" id="deposit" placeholder="Tiền đặt cọc" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <!-- Phương thức thanh toán và tình trạng thanh toán -->
+    <h3 class="section-title">Phương Thức Thanh Toán</h3>
+    <nz-form-item>
+      <nz-form-label [nzFor]="'paymentMethod'" nzRequired>Phương thức thanh toán</nz-form-label>
+      <nz-form-control nzErrorTip="Vui lòng nhập phương thức thanh toán">
+        <input nz-input formControlName="paymentMethod" id="paymentMethod" placeholder="Phương thức thanh toán" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <!-- Trách nhiệm pháp lý và bảo hiểm -->
+    <h3 class="section-title">Trách Nhiệm Pháp Lý và Bảo Hiểm</h3>
+    <nz-form-item>
+      <nz-form-label [nzFor]="'insuranceDetails'" nzRequired>Thông tin bảo hiểm</nz-form-label>
+      <nz-form-control nzErrorTip="Vui lòng nhập thông tin bảo hiểm">
+        <textarea nz-input formControlName="insuranceDetails" id="insuranceDetails" placeholder="Thông tin bảo hiểm"></textarea>
+      </nz-form-control>
+    </nz-form-item>
+
+    <!-- Điều khoản hủy bỏ hợp đồng -->
+    <h3 class="section-title">Chính Sách Hủy Hợp Đồng</h3>
+    <nz-form-item>
+      <nz-form-label [nzFor]="'cancellationPolicy'" nzRequired>Chính sách hủy hợp đồng</nz-form-label>
+      <nz-form-control nzErrorTip="Vui lòng nhập chính sách hủy">
+        <textarea nz-input formControlName="cancellationPolicy" id="cancellationPolicy" placeholder="Chính sách hủy hợp đồng"></textarea>
+      </nz-form-control>
+    </nz-form-item>
+
+    <!-- Nút gửi -->
+    <div nz-row nzJustify="center" class="submit-button">
+      <button nz-button nzType="primary">Gửi hợp đồng</button>
+    </div>
+  </form>
+</div>
+
+</div>
+
+<!-- <script>
+  document.addEventListener("DOMContentLoaded", function() {
+      // Tự động cuộn xuống phần nội dung khi trang tải xong
+      document.getElementById("content").scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+      });
+  });
+</script>
+
+<style>
+  #content {
+  padding-top: 80px; /* Điều chỉnh kích thước tùy theo độ cao của navbar */
+}
+
+</style> -->
+

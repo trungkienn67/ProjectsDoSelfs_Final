@@ -1,0 +1,66 @@
+<div id="content">
+  <div *ngIf="car" [style.background-image]="'url(' + processedImage + ')'" style="background-size: cover; background-position: center; min-height: 91vh; padding: 40px;">
+    <!-- Car Info Section -->
+    <div style="display: flex; gap: 20px; align-items: center; background: rgba(251, 251, 251, 0.85); border-radius: 15px; padding: 20px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+      <img class="profile" style="height: 150px; width: 250px; border-radius: 10px; object-fit: cover;" [src]="processedImage" alt="Car Image">
+      <div style="flex: 1;">
+        <h2 style="cursor: pointer; color: #108ee9; margin-bottom: 10px; text-transform: uppercase;">
+          {{car.brand}} - {{car.name}}
+        </h2>
+        <p style="font-size: 14px; color: #555; margin-bottom: 15px;">{{car.description}}</p>
+        <hr style="margin: 10px 0;"/>
+        <h5 style="font-size: 16px;">
+          Price: <b style="color: #ff5722;">{{car.price | currency: 'USD'}}</b> - Color: <b>{{car.color}}</b> - Transmission: <b>{{car.transmission}}</b> - Type: <b>{{car.type}}</b> - carOwner: <b>{{car.carOwner}}</b> - Year: <b>{{car.year | date: 'yyyy'}}</b>
+        </h5>
+        <hr style="margin: 10px 0;"/>
+      </div>
+    </div>
+  
+    <!-- Form Section -->
+  <nz-spin [nzSpinning]="isSpinning" [nzSize]="'large'" nzTip="Working..." style="margin-top: 40px;">
+    <form [formGroup]="postCarForm" style="background: rgba(255, 255, 255, 0.9); padding: 30px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+      <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+        <!-- From Date -->
+        <div style="flex: 1; min-width: 250px;">
+          <nz-form-item>
+            <nz-form-label nzFor="fromDate" style="background-color: transparent; font-weight: bold;">From Date</nz-form-label>
+            <nz-form-control>
+              <nz-date-picker formControlName="fromDate" nzPlaceHolder="From Date" [nzFormat]="dateFormat" id="fromDate" style="width: 100%;"></nz-date-picker>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+  
+        <!-- To Date -->
+        <div style="flex: 1; min-width: 250px;">
+          <nz-form-item>
+            <nz-form-label nzFor="toDate" style="background-color: transparent; font-weight: bold;">To Date</nz-form-label>
+            <nz-form-control>
+              <nz-date-picker formControlName="toDate" nzPlaceHolder="To Date" [nzFormat]="dateFormat" id="toDate" style="width: 100%;"></nz-date-picker>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+  
+        <!-- Payment Selection -->
+        <div style="flex: 1; min-width: 250px;">
+          <nz-form-item>
+            <nz-form-label nzFor="payment" style="background-color: transparent; font-weight: bold;">Select Payment</nz-form-label>
+            <nz-form-control nzErrorTip="This input is required">
+              <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a Payment" formControlName="payment" style="width: 100%;">
+                <nz-option *ngFor="let payment of listOfPayment" [nzLabel]="payment" [nzValue]="payment"></nz-option>
+              </nz-select>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+      </div>
+    
+  
+  <!-- Submit Button -->
+  <div style="text-align: center; margin-top: 30px;">
+    <button class="filterBtn" nz-button nzType="primary" (click)="bookACar(postCarForm.value)"
+            style="padding: 12px 50px; border-radius: 50px; font-size: 16px; transition: background-color 0.3s; line-height: 1;">
+      Book Car
+    </button>
+  </div>
+</form>
+  
+  

@@ -1,0 +1,21 @@
+<div id="content">
+<div style="background-color: #f8f8f8; min-height: 91vh; padding: 20px;">
+    <div style="margin-top: 10px;" class="car-list">
+        <div class="child" *ngFor="let car of cars">
+            <nz-row>
+                <nz-col nzSpan="8">
+                    <img class="car-image" [src]="car.processedImg" alt="Car Image" routerLink="/customer/comment/{{car.id}}">
+                </nz-col>
+                <nz-col nzSpan="16">
+                    <h2 class="car-title">{{car.brand}} - {{car.name}}</h2>
+                    <p class="car-description">{{car.description}}</p>
+                    <hr/>
+                    <h5 class="car-details">
+                        Price: <b>${{car.price}}</b> - Color: <b>{{car.color}}</b> - Transmission: <b>{{car.transmission}}</b> - Type: <b>{{car.type}}</b> - carOwner: <b>{{car.carOwner}}</b> - Year: <b>{{car.year | date: 'yyyy'}}</b>
+                    </h5>
+                </nz-col>
+            </nz-row>
+        </div>
+    </div>
+</div>
+</div>

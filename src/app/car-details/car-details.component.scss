@@ -1,0 +1,85 @@
+
+    body {
+        font-family: 'Open Sans', sans-serif;
+        background-color: #131313;
+        color: #fff;
+        overflow-x: hidden; /* Ẩn thanh cuộn ngang */	
+        /* đổi ảnh background ở đây!! */
+        background-size: cover; /* Đảm bảo ảnh phủ kín toàn bộ phần tử */
+        background-position: center; /* Đặt ảnh ở giữa phần tử */
+        background-image: url('https://img.freepik.com/free-vector/paper-style-wavy-background_23-2149113696.jpg?semt=ais_hybrid');
+    }
+
+    .card {
+        margin-top: 50px;
+        /* đổi ảnh background ở đây!! */
+        background-size: cover; /* Đảm bảo ảnh phủ kín toàn bộ phần tử */
+        background-position: center; /* Đặt ảnh ở giữa phần tử */
+        background-image: url('https://img.lovepik.com/background/20211022/large/lovepik-simple-black-background-image_401754066.jpg');
+        /* background: #2e2e2e ;  */
+        border-radius: 10px;
+        padding: 2em;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Tăng độ mờ của bóng đổ */
+    }
+
+    .preview img {
+        border-radius: 10px;
+        transition: transform 0.2s;
+        max-height: 400px; /* Giới hạn chiều cao hình ảnh */
+        width: 100%; /* Đảm bảo hình ảnh chiếm hết chiều rộng */
+    }
+
+    .preview img:hover {
+        transform: scale(1.05);
+    }
+
+    .product-title, .price, .sizes, .colors {
+        text-transform: uppercase;
+        font-weight: bold;
+        color: #ff9f1a; /* Màu vàng cho tiêu đề */
+    }
+
+    .details p {
+        margin: 5px 0; /* Khoảng cách cho các đoạn văn */
+        color: #ccc; /* Màu chữ cho mô tả thêm phần nổi bật */
+    }
+
+    .actions button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 12px 24px; /* Tăng kích thước nút */
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease; /* Thêm hiệu ứng cho nút */
+        margin-top: 10px;
+        font-weight: bold; /* Làm nổi bật chữ trong nút */
+    }
+
+    .actions button:hover {
+        background-color: #0056b3; /* Đổi màu nút khi hover */
+        transform: scale(1.05); /* Phóng to nút khi hover */
+    }
+
+    /* Phần tiêu đề và thông tin chi tiết */
+    .product-title {
+        font-size: 24px; /* Tăng kích thước chữ cho tiêu đề */
+    }
+
+    .price {
+        font-size: 20px; /* Tăng kích thước chữ cho giá */
+        margin: 10px 0; /* Khoảng cách trên và dưới cho giá */
+    }
+
+    .sizes, .colors {
+        margin: 5px 0; /* Khoảng cách cho kích thước và màu sắc */
+    }
+
+    /* Hiệu ứng cho nút quay lại */
+    .actions button.back-button {
+        background-color: #28a745; /* Màu nền cho nút quay lại */
+    }
+
+    .actions button.back-button:hover {
+        background-color: #218838; /* Đổi màu nút khi hover */
+    }

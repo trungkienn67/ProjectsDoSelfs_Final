@@ -1,0 +1,89 @@
+.modern-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.header-style {
+  padding: 12px;
+  background-color: #f8f8f8;
+  color: #003973;
+  font-weight: bold;
+  text-align: left;
+}
+
+.row-style {
+  transition: background-color 0.3s;
+}
+
+.row-style:hover {
+  background-color: #f2f8ff;
+}
+
+/* Cỡ ảnh lớn hơn và không bị vỡ */
+.profile-img {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-rounded {
+  border-radius: 20px;
+  font-size: 14px;
+  padding: 5px 14px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-rounded:hover {
+  transform: scale(1.05);
+}
+
+.fixed-button {
+  background-color: #28a745;
+}
+
+.fixed-button:hover {
+  background-color: #218838;
+}
+
+.hasfixed-button {
+  background-color: #dc3545;
+}
+
+.hasfixed-button:hover {
+  background-color: #c82333;
+}
+
+.status-fixed {
+  color: green;
+}
+
+.status-hasfixed {
+  color: red;
+}
+
+.btn-payment {
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-payment:hover {
+  background-color: #0056b3;
+}
