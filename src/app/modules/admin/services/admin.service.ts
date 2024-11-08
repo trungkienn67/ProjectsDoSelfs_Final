@@ -93,7 +93,7 @@ export class AdminService {
   getRentalContractById(rentalContractId:number):Observable<any>{
     return this.http.get(BASIC_URL + `/api/admin/rental/${rentalContractId}`,{headers:this.createAuthorizationHeader()});
   }
-  
+
 
   createAuthorizationHeader():HttpHeaders{
     let authHeaders : HttpHeaders = new HttpHeaders();

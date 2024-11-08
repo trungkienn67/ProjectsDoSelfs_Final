@@ -28,6 +28,7 @@ import { NzRateModule } from 'ng-zorro-antd/rate';
 import { NzCommentModule } from 'ng-zorro-antd/comment';
 import { MyCommentComponent } from './component/my-comment/my-comment.component';
 import { CarFixComponent } from './component/car-fix/car-fix.component';
+import { RentalContractComponent } from './component/rental-contract/rental-contract.component';
 @NgModule({
   declarations: [
     CustomerComponent,
@@ -39,6 +40,7 @@ import { CarFixComponent } from './component/car-fix/car-fix.component';
     CarCommentComponent,
     MyCommentComponent,
     CarFixComponent,
+    RentalContractComponent,
   ],
   imports: [
     CommonModule,
