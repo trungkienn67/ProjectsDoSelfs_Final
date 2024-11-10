@@ -38,7 +38,7 @@ registerLocaleData(en);
     NavbarComponent,
     FooterComponent,
     HomeComponent,
-    CarDetailsComponent
+    CarDetailsComponent,
   ],
   imports: [
     BrowserModule,
