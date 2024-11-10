@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomerService } from '../../services/customer.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-my-bookings',
@@ -9,13 +10,16 @@ import { CustomerService } from '../../services/customer.service';
 export class MyBookingsComponent implements OnInit {
 
   bookings : any;
+  rentalContracts:any;
   isSpinning: boolean=false;
-  constructor(private sv:CustomerService) { 
+  constructor(private sv:CustomerService,private router:Router) { 
     this.getMyBookings();
   }
 
   ngOnInit() {
   }
+
+ 
 
   getMyBookings(){
     this.sv.getBookingByUserId().subscribe((res)=>{

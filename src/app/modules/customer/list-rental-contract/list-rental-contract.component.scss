@@ -1,0 +1,37 @@
+/* rental-contract-table.component.scss */
+.rental-contract-table table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .rental-contract-table th, .rental-contract-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .rental-contract-table th {
+    background-color: #f0f0f0;
+    color: #003973;
+  }
+  
+  .rental-contract-table td {
+    background-color: #ffffff;
+  }
+  
+  .rental-contract-table td strong {
+    font-weight: bold;
+  }
+  
+  .rental-contract-table .active {
+    color: green;
+  }
+  
+  .rental-contract-table .inactive {
+    color: red;
+  }
+  
+  .rental-contract-table .pending {
+    color: orange;
+  }
+  

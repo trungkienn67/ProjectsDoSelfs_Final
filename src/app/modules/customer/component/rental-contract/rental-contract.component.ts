@@ -12,27 +12,23 @@ import { error } from 'console';
 export class RentalContractComponent implements OnInit {
 
 
-  rentalContractId:number = this.active.snapshot.params["id"];
-  rentalContracts:any[]=[];
+  id:number = this.active.snapshot.params["id"];
+  rentalContracts:any;
   constructor(private active:ActivatedRoute,private sv:CustomerService,private msg:NzMessageService) { }
 
   ngOnInit(): void {
     this.getRentalContractById();
+    console.log("Rental Contract ID from route: ", this.active.snapshot.params["id"]);
+
   }
 
   getRentalContractById(){
-    this.sv.getContractById(this.rentalContractId).subscribe((res)=>{
+    this.sv.getContractById(this.id).subscribe((res)=>{
       this.rentalContracts = res;
+      console.log(res);
     })
   }
 
-  changeStatus(status:string){
-    this.sv.changeRentalCarStatus(this.rentalContractId,status).subscribe((res)=>{
-      this.msg.success("Change Success",{nzDuration:5000});
-      this.rentalContracts = res;
-    },error=>{
-      this.msg.error("Change Error",{nzDuration:5000});
-    })
-  }
+
 
 }

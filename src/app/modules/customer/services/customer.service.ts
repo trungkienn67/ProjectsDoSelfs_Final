@@ -59,8 +59,12 @@ changeRentalCarStatus(rentalContractId:number,status:string):Observable<any>{
   return this.http.get(BASIC + `/api/customer/${rentalContractId}/${status}`,{headers:this.createAuthorizationHeader()});
 }
 
-getContractById(rentalContractId:number):Observable<any>{
-  return this.http.get(BASIC + `/api/customer/${rentalContractId}`,{headers:this.createAuthorizationHeader()});
+getContractById(id:number):Observable<any>{
+  return this.http.get(BASIC + `/api/customer/rentalContract/${id}`,{headers:this.createAuthorizationHeader()});
+}
+
+getAllRentalContract():Observable<any>{
+  return this.http.get(BASIC + '/api/customer/rental',{headers:this.createAuthorizationHeader()});
 }
 
 createAuthorizationHeader():HttpHeaders{
