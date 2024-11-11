@@ -13,9 +13,11 @@ import { PostContractComponent } from './component/post-contract/post-contract.c
 import { PostRentalContractComponent } from './component/post-rental-contract/post-rental-contract.component';
 import { RentalContractComponent } from './component/rental-contract/rental-contract.component';
 import { ShowPaymentComponent } from './component/show-payment/show-payment.component';
+import { DataDashboardComponent } from './component/data-dashboard/data-dashboard.component';
 
 const routes: Routes = [
   {path:"dashboard",component:AdminDashboardComponent},
+  {path:'data-dashboard',component:DataDashboardComponent},
   {path:"car",component:PostCarComponent},
   {path:"cars/:id",component:UpdateCarComponent},
   {path:"bookings",component:GetBookingsComponent},

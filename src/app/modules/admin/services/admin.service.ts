@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { StorageService } from 'src/app/auth/services/storage/storage.service';
 
 
+
 const BASIC_URL = ["http://localhost:8080"];
 @Injectable({
   providedIn: 'root'
@@ -93,6 +94,12 @@ export class AdminService {
   getRentalContractById(rentalContractId:number):Observable<any>{
     return this.http.get(BASIC_URL + `/api/admin/rental/${rentalContractId}`,{headers:this.createAuthorizationHeader()});
   }
+
+  getALL():Observable<any>{
+    return this.http.get(BASIC_URL + '/api/admin/dashboard',{headers:this.createAuthorizationHeader()});
+  }
+
+  
 
 
   createAuthorizationHeader():HttpHeaders{

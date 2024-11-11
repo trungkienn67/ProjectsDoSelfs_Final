@@ -29,6 +29,7 @@ import { PostContractComponent } from './component/post-contract/post-contract.c
 import { RentalContractComponent } from './component/rental-contract/rental-contract.component';
 import { PostRentalContractComponent } from './component/post-rental-contract/post-rental-contract.component';
 import { ShowPaymentComponent } from './component/show-payment/show-payment.component';
+import { DataDashboardComponent } from './component/data-dashboard/data-dashboard.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { ShowPaymentComponent } from './component/show-payment/show-payment.comp
     PostContractComponent,
     RentalContractComponent,
     PostRentalContractComponent,
-    ShowPaymentComponent
+    ShowPaymentComponent,
+    DataDashboardComponent
   ],
   imports: [
     CommonModule,
