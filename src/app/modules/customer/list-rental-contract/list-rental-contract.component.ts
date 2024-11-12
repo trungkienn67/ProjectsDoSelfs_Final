@@ -30,9 +30,9 @@ export class ListRentalContractComponent implements OnInit {
     this.sv.changeRentalCarStatus(rentalContractId,status).subscribe((res)=>{
       this.msg.success("Change Success",{nzDuration:5000});
       this.rentalContracts = res;
+      this.getAllRentalContract();
     },error=>{
       this.msg.error("Change Error",{nzDuration:5000});
     })
   }
-
 }

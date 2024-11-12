@@ -56,7 +56,7 @@ postCarFix(carFixDto:any):Observable<any>{
 }
 
 changeRentalCarStatus(rentalContractId:number,status:string):Observable<any>{
-  return this.http.get(BASIC + `/api/customer/${rentalContractId}/${status}`,{headers:this.createAuthorizationHeader()});
+  return this.http.get(BASIC + `/api/customer/rentalContract/${rentalContractId}/${status}`,{headers:this.createAuthorizationHeader()});
 }
 
 getContractById(id:number):Observable<any>{
