@@ -14,10 +14,16 @@ import { PostRentalContractComponent } from './component/post-rental-contract/po
 import { RentalContractComponent } from './component/rental-contract/rental-contract.component';
 import { ShowPaymentComponent } from './component/show-payment/show-payment.component';
 import { DataDashboardComponent } from './component/data-dashboard/data-dashboard.component';
+import { TotalCarComponent } from './component/total-car/total-car.component';
+import { TotalBookingsComponent } from './component/total-bookings/total-bookings.component';
+import { TotalContractComponent } from './component/total-contract/total-contract.component';
 
 const routes: Routes = [
   {path:"dashboard",component:AdminDashboardComponent},
   {path:'data-dashboard',component:DataDashboardComponent},
+  {path:'totalCar',component:TotalCarComponent},
+  {path:'totalBooking',component:TotalBookingsComponent},
+  {path:'totalContract',component:TotalContractComponent},
   {path:"car",component:PostCarComponent},
   {path:"cars/:id",component:UpdateCarComponent},
   {path:"bookings",component:GetBookingsComponent},

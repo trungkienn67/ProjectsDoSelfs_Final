@@ -30,6 +30,9 @@ import { RentalContractComponent } from './component/rental-contract/rental-cont
 import { PostRentalContractComponent } from './component/post-rental-contract/post-rental-contract.component';
 import { ShowPaymentComponent } from './component/show-payment/show-payment.component';
 import { DataDashboardComponent } from './component/data-dashboard/data-dashboard.component';
+import { TotalCarComponent } from './component/total-car/total-car.component';
+import { TotalBookingsComponent } from './component/total-bookings/total-bookings.component';
+import { TotalContractComponent } from './component/total-contract/total-contract.component';
 
 
 @NgModule({
@@ -47,7 +50,10 @@ import { DataDashboardComponent } from './component/data-dashboard/data-dashboar
     RentalContractComponent,
     PostRentalContractComponent,
     ShowPaymentComponent,
-    DataDashboardComponent
+    DataDashboardComponent,
+    TotalCarComponent,
+    TotalBookingsComponent,
+    TotalContractComponent
   ],
   imports: [
     CommonModule,

@@ -99,6 +99,14 @@ export class AdminService {
     return this.http.get(BASIC_URL + '/api/admin/dashboard',{headers:this.createAuthorizationHeader()});
   }
 
+  getRevenue():Observable<any>{
+    return this.http.get(BASIC_URL + '/api/admin/monthly-revenue',{headers:this.createAuthorizationHeader()});
+  }
+
+  searchCarByName(searchCarDto:any):Observable<any>{
+    return this.http.post(BASIC_URL + `/api/admin/search`,searchCarDto,{headers:this.createAuthorizationHeader()});
+  }
+
   
 
 

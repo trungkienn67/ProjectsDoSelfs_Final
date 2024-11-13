@@ -125,23 +125,41 @@
 <body>
   <div class="analytics-report" *ngIf=" AllData">
     <div class="dashboard-overview">
-      <div class="stat-card">
+      <div class="stat-card" routerLink="/admin/totalCar" routerLinkActive="active">
         <h3>Total Car</h3>
         <p id="total-questions">{{AllData.totalCars}}</p>
       </div>
-      <div class="stat-card">
+      <div class="stat-card" routerLink="/admin/totalBooking" routerLinkActive="active" >
         <h3>Total Bookings</h3>
         <p id="average-score">{{AllData.totalBookings}}</p>
       </div>
-      <div class="stat-card">
+      <div class="stat-card" routerLink="/admin/totalContract" routerLinkActive="active">
         <h3>Total Contracts</h3>
         <p id="average-score">{{AllData.totalRentalContracts }}</p>
       </div>
-      <div class="stat-card">
+      <div class="stat-card" >
         <h3>Total Revenue</h3>
         <p id="average-score">{{AllData.totalRevenue | currency}}</p>
       </div>
     </div>
+<!-- chart -->
+
+<h1>Revenue Chart</h1>
+
+<div class="chart-container">
+  <div class="chart">
+    <div *ngFor="let value of chartData.values; let i = index" class="bar" [style.height.%]="value">
+      <span>{{ chartData.values[i] }}</span>
+    </div>
   </div>
+  <div class="labels">
+    <span *ngFor="let label of chartData.labels">{{ label }}</span>
+  </div>
+</div>
+<!--  -->
+
+  </div>
+
+  
 </body>
 </html>

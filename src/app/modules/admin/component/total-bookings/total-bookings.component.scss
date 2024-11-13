@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.table-container {
+    width: 90%;
+    margin: 20px auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.table-header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #ddd;
+}
+
+.search-wrapper {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.search-wrapper input {
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.view-options {
+    display: flex;
+    align-items: center;
+}
+
+.view-options label {
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.view-options select {
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f0f0f0;
+    cursor: pointer;
+    position: relative;
+}
+
+th i {
+    margin-left: 5px;
+}
+
+td {
+    max-width: 300px; /* Increased maximum width for better visibility of long addresses */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+td img {
+    width: 50px; /* Square width */
+    height: 50px; /* Square height */
+    border-radius: 5px; /* Square corners */
+    display: block;
+    margin: 0 auto; /* Centering the image */
+}
+
+button{
+    background-color: blue;
+    color: #fff;
+}
+
+h1{
+    text-align: center;
+}

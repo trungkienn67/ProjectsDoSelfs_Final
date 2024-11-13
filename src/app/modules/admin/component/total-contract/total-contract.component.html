@@ -1,0 +1,42 @@
+
+<h1>Total Booking</h1>
+<div class="table-container">
+    <div class="table-header">
+        <div class="search-wrapper" >
+            <input type="text" id="search-input" placeholder="Search..." formControlName="name">
+            <button><i class="fas fa-search" ></i></button>
+        </div>
+        <div class="view-options">
+            <label for="rows-select">Show rows:</label>
+            <select id="rows-select">
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="50">50</option>
+            </select>
+        </div>
+    </div>
+    <table id="employee-table">
+        <thead>
+            <tr>
+                <th data-column="id" data-order="desc">ID <i class="fas fa-sort"></i></th>
+                <th data-column="fullName" data-order="desc">CarName <i class="fas fa-sort"></i></th>
+                <th data-column="sex" data-order="desc"> UserName<i class="fas fa-sort"></i></th>
+                <th data-column="age" data-order="desc">Booking Id <i class="fas fa-sort"></i></th>
+                <th data-column="position" data-order="desc">Usage <i class="fas fa-sort"></i></th>
+                <th data-column="salary" data-order="desc">Termination <i class="fas fa-sort"></i></th>
+                <th data-column="address" data-order="desc">Status <i class="fas fa-sort"></i></th>
+            </tr>
+        </thead>
+        <tbody id="table-body" *ngFor="let item of Contracts">
+            <td>{{item.id}}</td>
+            <td>{{item.carName}}</td>
+            <td>{{item.userName}}</td>
+            <td>{{item.bookACarId}}</td>
+            <td>{{item.usageTerms}}</td>
+            <td>{{item.terminationTerms}}</td>
+            <td>{{item.rentalContractStatus}}</td>
+        </tbody>
+    </table>
+</div>
+
+<button routerLink="/admin/data-dashboard" routerLinkActive="active">Back</button>
