@@ -155,7 +155,7 @@
 <div class="chart-container">
   <div class="chart">
     <div *ngFor="let value of chartData.values; let i = index" class="bar" [style.height.%]="value">
-      <span>{{ chartData.values[i] }}</span>
+      <span class="bar-value">{{ chartData.values[i] | currency }}</span>
     </div>
   </div>
   <div class="labels">

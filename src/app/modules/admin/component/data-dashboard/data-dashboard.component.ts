@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../../services/admin.service';
 import { Chart, ChartType, Color } from 'chart.js';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
+
 
 @Component({
   selector: 'app-data-dashboard',
@@ -11,6 +13,8 @@ export class DataDashboardComponent implements OnInit {
 
 
   public chartData: any = { labels: [], values: [] };
+
+  public revenueChart: any;// Khai báo revenueChart như một thuộc tính kiểu Chart | null
 
 
   pieChartLabels: string[] = [];
@@ -69,16 +73,19 @@ export class DataDashboardComponent implements OnInit {
   }
 
 
+  
+  
+
 
   getPieChart(): void {
     this.sv.getPieChartCar().subscribe((data: any) => {
-      this.pieChartLabels = data.labels;  // Lấy nhãn từ backend (loại xe)
+      this.pieChartLabels = data.labels; 
       console.log(data);
 
       this.pieChartData = {
         datasets: [{
-          data: data.values,  // Số lượng xe
-          backgroundColor: this.pieChartColors.slice(0, data.labels.length),  // Lấy màu sắc tương ứng với số lượng loại xe
+          data: data.values,  
+          backgroundColor: this.pieChartColors.slice(0, data.labels.length),  
         }]
         
       };
@@ -89,20 +96,19 @@ export class DataDashboardComponent implements OnInit {
   getColorsForTypes(labels: string[]): string[] {
     const colors: string[] = [];
     
-    // Mở rộng colorMap với các loại xe mới
     const colorMap: { [key: string]: string } = {
-      'Hybrid': 'green',  // Màu cho Hybrid
-      'Electric': 'blue', // Màu cho Electric
-      'SUV': 'purple',    // Màu cho SUV
-      'Sedan': 'orange',  // Màu cho Sedan
-      'Petrol': 'red',    // Màu cho Petrol
-      'Diesel': 'gray',   // Màu cho Diesel
-      'CNG': 'yellow',    // Màu cho CNG
-      // Thêm các loại xe khác tại đây nếu cần
+      'Hybrid': 'green',  
+      'Electric': 'blue', 
+      'SUV': 'purple',    
+      'Sedan': 'orange',  
+      'Petrol': 'red',    
+      'Diesel': 'gray',   
+      'CNG': 'yellow',    
+      
     };
   
     labels.forEach(label => {
-      colors.push(colorMap[label] || 'black'); // Nếu không có trong colorMap, dùng màu 'black' mặc định
+      colors.push(colorMap[label] || 'black'); 
     });
   
     return colors;
@@ -113,6 +119,7 @@ export class DataDashboardComponent implements OnInit {
     this.sv.getALL().subscribe((res)=>{
       this.AllData = res;
       console.log(res);
+      this.createChart(); 
     })
   }
 
@@ -122,49 +129,63 @@ export class DataDashboardComponent implements OnInit {
     this.sv.getRevenue().subscribe((res)=>{
       console.log(res);
       this.chartData = res;
+      const maxRevenue = Math.max(...this.chartData.values); 
+      const normalizedData = this.chartData.values.map((value: number) => (value / maxRevenue) * 100); 
+
+      this.chartData.values = normalizedData;
     })
   }
 
 
 
+  
   createChart(): void {
     const canvas = document.getElementById('revenueChart') as HTMLCanvasElement;
-    
-    // Nếu chart đã tồn tại thì hủy nó để vẽ lại
-    if (this.chartData) {
-      this.chartData.destroy();
+
+    if (this.revenueChart) {
+      this.revenueChart.destroy();
     }
 
-    // Tạo một đối tượng chart mới
-    this.chartData = new Chart(canvas, {
-      type: 'bar',  // Loại chart (cột)
+    this.revenueChart = new Chart(canvas, {
+      type: 'bar',
       data: {
-        labels: this.chartData.labels,  // Nhãn năm hoặc tháng
+        labels: this.chartData.labels,  
         datasets: [{
           label: 'Revenue',
-          data: this.chartData.values,  // Dữ liệu doanh thu
-          backgroundColor: '#4CAF50',  // Màu sắc cột
+          data: this.chartData.values,  
+          backgroundColor: '#4CAF50',
           borderColor: '#388E3C',
           borderWidth: 1
         }]
       },
       options: {
         responsive: true,
-        maintainAspectRatio: false,  // Cho phép thay đổi kích thước biểu đồ
+        maintainAspectRatio: false,
         scales: {
           y: {
-            beginAtZero: true,  // Đảm bảo trục Y bắt đầu từ 0
+            beginAtZero: true,
             ticks: {
-              stepSize: 10  // Điều chỉnh độ chia trên trục Y
+              stepSize: 10
             }
           }
         },
         plugins: {
           legend: {
-            position: 'top',  // Vị trí của legend (chú thích)
+            position: 'top',
+          },
+          datalabels: {
+            display: true,
+            color: 'white',
+            formatter: (value: number, context: any) => {
+              const total = context.chart.data.datasets[0].data.reduce((a: number, b: number) => a + b, 0);
+              let percentage = Math.round((value / total) * 100);
+              return percentage + '%';
+            }
           }
         }
-      } 
+      },
+      plugins: [ChartDataLabels] 
     });
   }
 }
+  
