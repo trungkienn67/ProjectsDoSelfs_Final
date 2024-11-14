@@ -107,6 +107,10 @@ export class AdminService {
     return this.http.post(BASIC_URL + `/api/admin/search`,searchCarDto,{headers:this.createAuthorizationHeader()});
   }
 
+
+  getPieChartCar():Observable<any>{
+    return this.http.get(BASIC_URL + '/api/admin/car-type-data',{headers:this.createAuthorizationHeader()});
+  }
   
 
 

@@ -33,6 +33,9 @@ import { DataDashboardComponent } from './component/data-dashboard/data-dashboar
 import { TotalCarComponent } from './component/total-car/total-car.component';
 import { TotalBookingsComponent } from './component/total-bookings/total-bookings.component';
 import { TotalContractComponent } from './component/total-contract/total-contract.component';
+import { NgChartsModule } from 'ng2-charts';  // Sử dụng NgChartsModule thay vì ChartsModule
+
+
 
 
 @NgModule({
@@ -60,8 +63,6 @@ import { TotalContractComponent } from './component/total-contract/total-contrac
     AdminRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-
-
     NzSpinModule,
     NzFormModule,
     NzButtonModule,
@@ -69,7 +70,9 @@ import { TotalContractComponent } from './component/total-contract/total-contrac
     NzLayoutModule,
     NzMessageModule,
     NzSelectModule,
-    NzDatePickerModule,NzTimePickerModule,NzTableModule
+    NzDatePickerModule,NzTimePickerModule,NzTableModule,
+    NgChartsModule,
+    
   ]
 })
 export class AdminModule { }

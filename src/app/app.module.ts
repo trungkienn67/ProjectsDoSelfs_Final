@@ -27,6 +27,8 @@ import { HomeComponent } from './home/home.component';
 import { CarDetailsComponent } from './car-details/car-details.component';
 import { NzRateModule } from 'ng-zorro-antd/rate';
 import { NzCommentModule } from 'ng-zorro-antd/comment';
+import { NgChartsModule } from 'ng2-charts';
+
 
 registerLocaleData(en);
 
@@ -47,8 +49,6 @@ registerLocaleData(en);
     HttpClientModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-
-
     NzSpinModule,
     NzFormModule,
     NzButtonModule,
@@ -56,7 +56,8 @@ registerLocaleData(en);
     NzLayoutModule,
     NzMessageModule,
     NzRateModule,
-    NzCommentModule
+    NzCommentModule,
+    NgChartsModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]
