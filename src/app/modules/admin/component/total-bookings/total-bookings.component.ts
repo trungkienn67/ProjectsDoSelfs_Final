@@ -9,6 +9,8 @@ import { AdminService } from '../../services/admin.service';
 export class TotalBookingsComponent implements OnInit {
 
 
+
+  id!:number;
   bookACar:any;
   p: number = 1;
   constructor(private sv:AdminService) { }
@@ -21,6 +23,13 @@ export class TotalBookingsComponent implements OnInit {
     this.sv.getCarBookings().subscribe((res)=>{
       console.log(res);
       this.bookACar = res;
+    })
+  }
+
+  searchTotal(id:number){
+    this.sv.searchTotalBooking(id).subscribe((res)=>{
+      this.bookACar = res;
+      console.log(res);
     })
   }
 

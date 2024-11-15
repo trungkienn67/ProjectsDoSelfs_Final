@@ -6,8 +6,9 @@
       <div class="table-container">
         <div class="table-header">
           <div class="search-wrapper">
-            <form>
-              <input type="text" id="search-input" placeholder="Search..." formControlName="name">
+            <form (ngSubmit)="searchTotal(id)">
+              <input type="text" id="search-input" placeholder="Search..."  [(ngModel)]="id" 
+              name="id">
               <button class="btn-navbar"><i class="fas fa-search"></i></button>
             </form>
           </div>

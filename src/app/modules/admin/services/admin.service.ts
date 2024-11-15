@@ -114,6 +114,12 @@ export class AdminService {
     return this.http.get(BASIC_URL + '/api/admin/car-type-data',{headers:this.createAuthorizationHeader()});
   }
 
+  searchTotalBooking(id:number):Observable<any>{
+    const params = new HttpParams().set('id',id);
+    const headers = this.createAuthorizationHeader();
+    return this.http.get(BASIC_URL + '/api/admin/searchById',{headers,params});
+  }
+
   
 
 
