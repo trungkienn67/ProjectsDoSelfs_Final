@@ -47,21 +47,25 @@ export class DataDashboardComponent implements OnInit {
       },
       tooltip: {
         callbacks: {
-          label: function(tooltipItem: any) {
-            return tooltipItem.label + ': ' + tooltipItem.raw + '%';  // Hiển thị tỷ lệ phần trăm trong tooltip
+          label: (tooltipItem: any) => {
+            const total = this.pieChartData.datasets[0].data.reduce((a: any, b: any) => a + b, 0);
+            const percentage = ((tooltipItem.raw / total) * 100).toFixed(1);  
+            return `${tooltipItem.label}: ${percentage}%`;  
           }
         }
       },
-      datalabels: {  // Sử dụng plugin Chart.js để vẽ nhãn vào trong các phần của biểu đồ
+      datalabels: {  
         display: true,
-        color: 'white',  // Màu chữ trong nhãn
+        color: 'white',  
         formatter: (value: any, context: any) => {
-          let percentage = Math.round((value / this.pieChartData.reduce((a: any, b: any) => a + b, 0)) * 100);
-          return percentage + '%';  // Hiển thị tỷ lệ phần trăm
+          const total = this.pieChartData.datasets[0].data.reduce((a: any, b: any) => a + b, 0);
+          const percentage = Math.round((value / total) * 100);  
+          return `${percentage}%`;  
         }
       }
     }
   };
+  
   AllData:any;
   
   constructor(private sv:AdminService) { }
@@ -80,6 +84,7 @@ export class DataDashboardComponent implements OnInit {
   getPieChart(): void {
     this.sv.getPieChartCar().subscribe((data: any) => {
       this.pieChartLabels = data.labels; 
+      // this.pieChartData.datasets[0].data = data.values;
       console.log(data);
 
       this.pieChartData = {
