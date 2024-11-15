@@ -26,11 +26,17 @@ export class TotalBookingsComponent implements OnInit {
     })
   }
 
-  searchTotal(id:number){
-    this.sv.searchTotalBooking(id).subscribe((res)=>{
+  searchTotal(id: number | null) {
+    if (!id) {
+      this.getAllBookACar(); // Hiển thị toàn bộ danh sách nếu input trống
+      return;
+    }
+  
+    this.sv.searchTotalBooking(id).subscribe((res) => {
       this.bookACar = res;
       console.log(res);
-    })
+    });
   }
+  
 
 }

@@ -35,24 +35,21 @@ export class TotalCarComponent implements OnInit {
 
 
   searchCarByName(name: string) {
-    if (name.trim() === '') {
-      console.log('Tên xe không được để trống');
+    if (!name || name.trim() === '') {
+      this.getAllCar(); // Hiển thị toàn bộ danh sách nếu input trống
       return;
     }
   
     this.sv.searchCarByName(name).subscribe(
       (res) => {
-        console.log(res);
-        this.cars=res;
         this.cars = res.map((element: { processedImg: string; returnedImage: string; }) => ({
           ...element,
           processedImg: 'data:image/jpeg;base64,' + element.returnedImage
         }));
-            },
+      },
       (error) => {
         console.error('Lỗi khi tìm kiếm:', error);
       }
     );
   }
-
-}
+}  
