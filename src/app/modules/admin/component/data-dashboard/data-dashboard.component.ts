@@ -141,18 +141,20 @@ export class DataDashboardComponent implements OnInit {
   
   createChart(): void {
     const canvas = document.getElementById('revenueChart') as HTMLCanvasElement;
-
+  
+    // Xóa biểu đồ cũ nếu có
     if (this.revenueChart) {
       this.revenueChart.destroy();
     }
-
+  
+    // Tạo biểu đồ mới
     this.revenueChart = new Chart(canvas, {
       type: 'bar',
       data: {
-        labels: this.chartData.labels,  
+        labels: this.chartData.labels,
         datasets: [{
           label: 'Revenue',
-          data: this.chartData.values,  
+          data: this.chartData.values,
           backgroundColor: '#4CAF50',
           borderColor: '#388E3C',
           borderWidth: 1
@@ -164,28 +166,48 @@ export class DataDashboardComponent implements OnInit {
         scales: {
           y: {
             beginAtZero: true,
+            suggestedMax: 100, // Đặt giá trị tối đa tùy chọn trên trục y
             ticks: {
-              stepSize: 10
+              stepSize: 20, // Bước nhảy trên trục y (0, 20, 40, 60, 80, 100)
+              callback: function(value) {
+                return value + '%'; // Hiển thị số liệu với ký hiệu %
+              },
+              color: '#000', // Màu chữ trên trục y
+              font: {
+                size: 12 // Kích thước font chữ
+              }
+            },
+            grid: {
+              display: true, // Hiển thị lưới trục y
+              color: '#e0e0e0'
+            }
+          },
+          x: {
+            grid: {
+              display: false
+            },
+            ticks: {
+              color: '#000',
+              font: {
+                size: 12
+              }
             }
           }
         },
         plugins: {
           legend: {
             position: 'top',
-          },
-          datalabels: {
-            display: true,
-            color: 'white',
-            formatter: (value: number, context: any) => {
-              const total = context.chart.data.datasets[0].data.reduce((a: number, b: number) => a + b, 0);
-              let percentage = Math.round((value / total) * 100);
-              return percentage + '%';
+            labels: {
+              color: '#000',
+              font: {
+                size: 14
+              }
             }
           }
         }
-      },
-      plugins: [ChartDataLabels] 
+      }
     });
   }
+  
 }
   
