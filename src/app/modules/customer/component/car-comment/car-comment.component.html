@@ -1,7 +1,7 @@
 <div id="content">
 <div style="background-color: #f8f8f8; min-height: 91vh; padding: 20px;">
     <div style="margin-top: 10px;" class="car-list">
-        <div class="child" *ngFor="let car of cars">
+        <div class="child" *ngFor="let car of cars | paginate: { itemsPerPage: 6, currentPage: p }">
             <nz-row>
                 <nz-col nzSpan="8">
                     <img class="car-image" [src]="car.processedImg" alt="Car Image" routerLink="/customer/comment/{{car.id}}">
@@ -18,4 +18,16 @@
         </div>
     </div>
 </div>
+    <!-- Thanh chuyển trang cố định dưới đáy trang -->
+    <div class="pagination-container">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+  <style>
+    .pagination-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      width: 100%;
+  }
+  </style>
 </div>

@@ -9,11 +9,11 @@
         <th style="padding: 10px; color: #003973;">Price</th>
         <th style="padding: 10px; color: #003973;">Payment Status</th>
         <th style="padding: 10px; color: #003973;">Status</th>
-        <th style="padding: 10px; color: #003973;">Action</th>
+
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let booking of bookings" style="border-bottom: 1px solid #ddd;">
+      <tr *ngFor="let booking of bookings | paginate: { itemsPerPage: 10, currentPage: p }" style="border-bottom: 1px solid #ddd;">
         <td style="padding: 10px;">{{ booking.fromDate | date: 'MMM d, y' }}</td>
         <td style="padding: 10px;">{{ booking.toDate | date: 'MMM d, y' }}</td>
         <td style="padding: 10px;">{{ booking.days }}</td>
@@ -24,13 +24,20 @@
             {{ booking.bookCarStatus }}
           </strong>
         </td>
-        <td style="padding: 10px;">
-          <button nz-button nzType="primary" >
-            My Contract
-          </button>
-        </td>
       </tr>
     </tbody>
   </table>
 </nz-spin>
+    <!-- Thanh chuyển trang cố định dưới đáy trang -->
+    <div class="pagination-container">
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+<style>
+  .pagination-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    width: 100%;
+}
+</style>
 </div>

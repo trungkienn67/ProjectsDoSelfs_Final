@@ -12,7 +12,7 @@ export class AdminDashboardComponent implements OnInit {
   constructor(private admin: AdminService, private msg: NzMessageService) { }
 
   cars: any = [];
-
+  p: number = 1;
   ngOnInit() {
     this.getAllCar();
   }
@@ -33,24 +33,5 @@ export class AdminDashboardComponent implements OnInit {
       this.cars = this.cars.filter((car: any) => car.id !== id);
       this.msg.success("Car deleted successfully", { nzDuration: 5000 });
     });
-  }
-
-  //loại bỏ navbar đi đến luôn phần content
-
-  ngAfterViewInit(): void {
-    // Cuộn đến phần nội dung khi component được khởi tạo
-    this.scrollToContent();
-  }
-
-  scrollToContent(): void {
-    setTimeout(() => {
-      const content = document.getElementById('content');
-      if (content) {
-        content.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
-      }
-    }, 500); // Thay đổi thời gian tùy theo độ trễ của trang
   }
 }

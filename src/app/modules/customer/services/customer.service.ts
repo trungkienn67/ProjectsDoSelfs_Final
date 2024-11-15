@@ -55,6 +55,17 @@ postCarFix(carFixDto:any):Observable<any>{
   return this.http.post(BASIC + `/api/customer/carFix/${StorageService.getUserId()}`,carFixDto,{headers:this.createAuthorizationHeader()});
 }
 
+changeRentalCarStatus(rentalContractId:number,status:string):Observable<any>{
+  return this.http.get(BASIC + `/api/customer/rentalContract/${rentalContractId}/${status}`,{headers:this.createAuthorizationHeader()});
+}
+
+getContractById(id:number):Observable<any>{
+  return this.http.get(BASIC + `/api/customer/rentalContract/${id}`,{headers:this.createAuthorizationHeader()});
+}
+
+getAllRentalContract():Observable<any>{
+  return this.http.get(BASIC + '/api/customer/rental',{headers:this.createAuthorizationHeader()});
+}
 
 createAuthorizationHeader():HttpHeaders{
   let authHeaders : HttpHeaders = new HttpHeaders();

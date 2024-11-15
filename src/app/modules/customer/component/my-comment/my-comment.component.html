@@ -10,7 +10,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let comment of basicTable.data">
+        <tr *ngFor="let comment of basicTable.data | paginate: { itemsPerPage: 8, currentPage: p }">
           <td>{{comment.username}}</td>
           <td>{{comment.body}}</td>
           <!-- Sử dụng nz-rate để hiển thị sao -->
@@ -22,4 +22,16 @@
       </tbody>
     </nz-table>
   </nz-spin>
+      <!-- Thanh chuyển trang cố định dưới đáy trang -->
+      <div class="pagination-container">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+  <style>
+    .pagination-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      width: 100%;
+  }
+  </style>
 </div>

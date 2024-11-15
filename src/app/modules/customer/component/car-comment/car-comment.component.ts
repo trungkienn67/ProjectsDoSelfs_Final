@@ -10,6 +10,7 @@ export class CarCommentComponent implements OnInit {
 
 
   cars :any = [] ;
+  p: number = 1;
   constructor(private sv:CustomerService) { }
 
   ngOnInit(): void {

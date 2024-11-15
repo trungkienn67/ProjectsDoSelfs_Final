@@ -29,6 +29,12 @@ import { PostContractComponent } from './component/post-contract/post-contract.c
 import { RentalContractComponent } from './component/rental-contract/rental-contract.component';
 import { PostRentalContractComponent } from './component/post-rental-contract/post-rental-contract.component';
 import { ShowPaymentComponent } from './component/show-payment/show-payment.component';
+import { DataDashboardComponent } from './component/data-dashboard/data-dashboard.component';
+import { TotalCarComponent } from './component/total-car/total-car.component';
+import { TotalBookingsComponent } from './component/total-bookings/total-bookings.component';
+import { TotalContractComponent } from './component/total-contract/total-contract.component';
+import { NgChartsModule } from 'ng2-charts';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -45,7 +51,11 @@ import { ShowPaymentComponent } from './component/show-payment/show-payment.comp
     PostContractComponent,
     RentalContractComponent,
     PostRentalContractComponent,
-    ShowPaymentComponent
+    ShowPaymentComponent,
+    DataDashboardComponent,
+    TotalCarComponent,
+    TotalBookingsComponent,
+    TotalContractComponent
   ],
   imports: [
     CommonModule,
@@ -61,7 +71,7 @@ import { ShowPaymentComponent } from './component/show-payment/show-payment.comp
     NzLayoutModule,
     NzMessageModule,
     NzSelectModule,
-    NzDatePickerModule,NzTimePickerModule,NzTableModule
+    NzDatePickerModule,NzTimePickerModule,NzTableModule,NgChartsModule,NgxPaginationModule
   ]
 })
 export class AdminModule { }

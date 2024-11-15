@@ -9,6 +9,7 @@ import { CustomerService } from '../../services/customer.service';
 export class MyBookingsComponent implements OnInit {
 
   bookings : any;
+  p: number = 1;
   isSpinning: boolean=false;
   constructor(private sv:CustomerService) { 
     this.getMyBookings();

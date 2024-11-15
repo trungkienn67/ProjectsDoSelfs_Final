@@ -10,6 +10,7 @@ export class CustomerComponent implements OnInit {
 
 
   cars : any=[];
+  p: number = 1;
   isSpinning:boolean = false;
   constructor(private sv:CustomerService) { }
 

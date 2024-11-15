@@ -27,7 +27,9 @@ import { CarCommentComponent } from './component/car-comment/car-comment.compone
 import { NzRateModule } from 'ng-zorro-antd/rate';
 import { NzCommentModule } from 'ng-zorro-antd/comment';
 import { MyCommentComponent } from './component/my-comment/my-comment.component';
-import { CarFixComponent } from './component/car-fix/car-fix.component';
+import { RentalContractComponent } from './component/rental-contract/rental-contract.component';
+import { ListRentalContractComponent } from './list-rental-contract/list-rental-contract.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 @NgModule({
   declarations: [
     CustomerComponent,
@@ -38,7 +40,8 @@ import { CarFixComponent } from './component/car-fix/car-fix.component';
     PostCommentComponent,
     CarCommentComponent,
     MyCommentComponent,
-    CarFixComponent,
+    RentalContractComponent,
+    ListRentalContractComponent,
   ],
   imports: [
     CommonModule,
@@ -56,7 +59,8 @@ import { CarFixComponent } from './component/car-fix/car-fix.component';
     NzDatePickerModule,NzTimePickerModule,
     NzTableModule,
     NzRateModule,
-    NzCommentModule
+    NzCommentModule,
+    NgxPaginationModule
   ]
 })
 export class CustomerModule { }

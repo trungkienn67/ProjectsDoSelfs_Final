@@ -10,6 +10,7 @@ export class HomeComponent implements OnInit {
 
 
   cars:any[]=[];
+  p: number = 1;
   constructor(private sv:HomeService) { }
 
   ngOnInit(): void {

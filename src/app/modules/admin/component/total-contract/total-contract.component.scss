@@ -1,0 +1,232 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.table-container {
+    width: 100%;
+    margin: 20px auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.table-header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    // background-color: #f5f5f5;
+    // border-bottom: 1px solid #ddd;
+}
+
+// .search-wrapper {
+//     flex: 1;
+//     display: flex;
+//     align-items: center;
+// }
+
+// .search-wrapper input {
+//     padding: 5px;
+//     border: 1px solid #ddd;
+//     border-radius: 5px;
+//     font-size: 16px;
+//     margin-right: 10px;
+// }
+
+.view-options {
+    display: flex;
+    align-items: center;
+}
+
+.view-options label {
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.view-options select {
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f0f0f0;
+    cursor: pointer;
+    position: relative;
+}
+
+th i {
+    margin-left: 5px;
+}
+
+td {
+    max-width: 300px; /* Increased maximum width for better visibility of long addresses */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+td img {
+    width: 50px; /* Square width */
+    height: 50px; /* Square height */
+    border-radius: 5px; /* Square corners */
+    display: block;
+    margin: 0 auto; /* Centering the image */
+}
+
+button{
+    background-color: blue;
+    color: #fff;
+}
+
+h1{
+    text-align: center;
+}
+
+/* Tổng quan */
+.card {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    // margin-top: 20px;
+    overflow: hidden;
+  }
+  
+  .card-header {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 15px;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .card-title {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .table-container {
+    padding: 20px;
+  }
+  
+  .table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .search-wrapper {
+    display: flex;
+    align-items: center;
+  }
+  
+  #search-input {
+    border-radius: 20px 0 0 20px;
+    border-right: none;
+  }
+  
+  .btn-navbar {
+    border-radius: 0 20px 20px 0;
+    background-color: #11222e;
+    color: white;
+    transition: background-color 0.3s ease;
+  }
+  
+
+  
+  .view-options label {
+    margin-right: 5px;
+    font-weight: 500;
+    color: #333;
+  }
+  
+  #rows-select {
+    min-width: 60px;
+    border-radius: 4px;
+    margin-left: 5px;
+  }
+  
+  /* Bảng dữ liệu */
+  .table-responsive {
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  table thead {
+    background-color: #f4f6f9;
+  }
+  
+  table th {
+    font-weight: bold;
+    text-align: center;
+    padding: 12px;
+    color: #333;
+    border-bottom: 2px solid #ddd;
+  }
+  
+  table td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  thead th i {
+    margin-left: 5px;
+    color: #6c757d;
+  }
+  
+  .table tbody tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Footer */
+  .card-footer {
+    background-color: #f4f6f9;
+    padding: 15px;
+    text-align: right;
+  }
+  
+  .btn-secondary {
+    color: #333;
+    background-color: #f8f9fa;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 8px 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-secondary {
+    color: #000000;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-secondary {
+    color: #fff;
+    background-color: #11222e;
+    box-shadow: none;
+}
+  
+  

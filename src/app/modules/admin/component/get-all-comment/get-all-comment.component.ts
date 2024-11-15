@@ -11,6 +11,7 @@ export class GetALlCommentComponent implements OnInit {
 
   isSpinning:boolean = false;
   comments:any;
+  p: number = 1;
   constructor(private sv:AdminService) { }
 
   ngOnInit(): void {
@@ -24,23 +25,6 @@ export class GetALlCommentComponent implements OnInit {
     })
   }
 
-  //loại bỏ navbar đi đến luôn phần content
 
-  ngAfterViewInit(): void {
-    // Cuộn đến phần nội dung khi component được khởi tạo
-    this.scrollToContent();
-  }
-
-  scrollToContent(): void {
-    setTimeout(() => {
-      const content = document.getElementById('content');
-      if (content) {
-        content.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
-      }
-    }, 500); // Thay đổi thời gian tùy theo độ trễ của trang
-  }
 
 }

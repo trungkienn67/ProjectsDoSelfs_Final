@@ -1,0 +1,87 @@
+/* Tổng quan cho card */
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  /* Tiêu đề */
+  .content-header h1 {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  /* Thanh tìm kiếm */
+  .search-wrapper {
+    display: flex;
+    align-items: center;
+  }
+  
+  #search-input {
+    border-radius: 20px 0 0 20px;
+    border-right: none;
+  }
+  
+  .btn-navbar {
+    border-radius: 0 20px 20px 0;
+    background-color: #11222e;
+    color: white;
+    transition: background-color 0.3s ease;
+  }
+  
+  
+  /* Dropdown số lượng hàng hiển thị */
+  #rows-select {
+    min-width: 60px;
+    border-radius: 4px;
+    margin-left: 5px;
+  }
+  
+  /* Bảng hiển thị thông tin xe */
+  .table-container {
+    overflow-x: auto;
+  }
+  
+  .table thead th {
+    background-color: #f4f6f9;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .table tbody td {
+    vertical-align: middle;
+  }
+  
+/* Cập nhật phần hiển thị ảnh đại diện trong bảng */
+.table tbody img {
+    width: 100px;           /* Tăng kích thước ảnh để hiển thị rõ ràng hơn */
+    height: 80px;
+    border-radius: 8px;    /* Giảm bo tròn để ảnh rõ nét và dễ nhận diện */
+    object-fit: cover;     /* Giữ ảnh không bị méo khi cắt xén */
+    margin-right: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Thêm bóng nhẹ để ảnh nổi bật hơn */
+  }
+  
+  
+  /* Footer và nút Back */
+  .card-footer {
+    background-color: #f4f6f9;
+    text-align: right;
+  }
+  
+  .btn-secondary {
+    color: #000000;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-secondary {
+    color: #fff;
+    background-color: #11222e;
+    box-shadow: none;
+}
+  
+
+  

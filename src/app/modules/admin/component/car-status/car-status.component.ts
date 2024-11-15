@@ -10,6 +10,7 @@ import { NzMessageService } from 'ng-zorro-antd/message';
 export class CarStatusComponent implements OnInit {
 
   cars: any[] = []; // Mảng chứa thông tin xe
+  p: number = 1;
   isSpinning: boolean = false; // Biến để quản lý trạng thái loading
 
   constructor(private sv: AdminService, private notice: NzMessageService) {}
@@ -52,22 +53,4 @@ export class CarStatusComponent implements OnInit {
     );
   }
 
-  //loại bỏ navbar đi đến luôn phần content
-
-  ngAfterViewInit(): void {
-    // Cuộn đến phần nội dung khi component được khởi tạo
-    this.scrollToContent();
-  }
-
-  scrollToContent(): void {
-    setTimeout(() => {
-      const content = document.getElementById('content');
-      if (content) {
-        content.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
-      }
-    }, 500); // Thay đổi thời gian tùy theo độ trễ của trang
-  }
 }

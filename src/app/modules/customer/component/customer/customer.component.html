@@ -1,4 +1,4 @@
-<body>
+<!-- <body>
   <div class="container" *ngFor="let item of cars">
       <div class="card">
           <div class="imgBx">
@@ -28,5 +28,38 @@
                 </div>
                </div>
       </div>
+  </div>
+</body> -->
+
+<body>
+  <div class="container">
+      <div class="card" *ngFor="let item of cars | paginate: { itemsPerPage: 4, currentPage: p }">
+          <div class="imgBx">
+              <img routerLink="/car-details/{{item.id}}" [src]="item.processedImg" alt="nike-air-shoe">
+          </div>
+          <div class="contentBx">
+              <h2>{{item.name}}</h2>
+              <div class="size">
+                  <h3>{{item.brand}}</h3> <span>+</span> <h3>{{item.transmission}}</h3> <span>+</span> <h3>{{item.type}}</h3>
+              </div>
+              <div class="color">
+                  <h3>{{item.color}}</h3> <span>+</span> <h3>{{item.year | date:'yyyy'}}</h3>
+              </div>
+              <div *ngIf="item.carStatus == 'USE'">
+                <a routerLink="/customer/book/{{item.id}}">Book Now</a>
+              </div>
+              <div *ngIf="item.carStatus == 'BOOKED'">
+                <a>Has Been Booked</a>
+              </div> 
+              <div *ngIf="item.carStatus == 'FIXING'">
+                <a>The Car is Fixing</a>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- Thanh chuyển trang cố định dưới đáy trang -->
+  <div class="pagination-container">
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
   </div>
 </body>

@@ -16,7 +16,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let car of basicTable.data">
+            <tr *ngFor="let car of basicTable.data | paginate: { itemsPerPage: 10, currentPage: p }">
                 <td>{{car.name}}</td>
                 <td>{{car.brand}}</td>
                 <td>{{car.color}}</td>
@@ -41,4 +41,16 @@
         </tbody>
     </nz-table>
 </nz-spin>
+    <!-- Thanh chuyển trang cố định dưới đáy trang -->
+    <div class="pagination-container">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+  <style>
+    .pagination-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      width: 100%;
+  }
+  </style>
 </div>

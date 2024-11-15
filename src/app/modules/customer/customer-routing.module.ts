@@ -8,19 +8,20 @@ import { CarDetailsComponent } from './component/car-details/car-details.compone
 import { PostCommentComponent } from './component/post-comment/post-comment.component';
 import { CarCommentComponent } from './component/car-comment/car-comment.component';
 import { MyCommentComponent } from './component/my-comment/my-comment.component';
-import { CarFixComponent } from './component/car-fix/car-fix.component';
+import { RentalContractComponent } from './component/rental-contract/rental-contract.component';
+import { ListRentalContractComponent } from './list-rental-contract/list-rental-contract.component';
 
 const routes: Routes = [
   {path:'dashboard',component: CustomerComponent},
   {path:'book/:id',component:BookCarComponent},
+  {path:'rental/:id',component:RentalContractComponent},
+  {path:'rental',component:ListRentalContractComponent},
   {path:"my_bookings",component:MyBookingsComponent},
   {path:"cars/search",component:SearchCarComponent},
   {path:'car-detail/:carId',component:CarDetailsComponent},
   {path:'comment/:carId',component:PostCommentComponent},
   {path:'comments',component:CarCommentComponent},
   {path:'my-comment',component:MyCommentComponent},
-  {path:'car-fix',component:CarFixComponent}
-
 ];
 
 @NgModule({

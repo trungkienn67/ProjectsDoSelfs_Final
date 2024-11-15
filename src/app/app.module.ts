@@ -27,6 +27,7 @@ import { HomeComponent } from './home/home.component';
 import { CarDetailsComponent } from './car-details/car-details.component';
 import { NzRateModule } from 'ng-zorro-antd/rate';
 import { NzCommentModule } from 'ng-zorro-antd/comment';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 registerLocaleData(en);
 
@@ -47,6 +48,7 @@ registerLocaleData(en);
     HttpClientModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    
 
 
     NzSpinModule,
@@ -56,7 +58,8 @@ registerLocaleData(en);
     NzLayoutModule,
     NzMessageModule,
     NzRateModule,
-    NzCommentModule
+    NzCommentModule,
+    NgxPaginationModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]

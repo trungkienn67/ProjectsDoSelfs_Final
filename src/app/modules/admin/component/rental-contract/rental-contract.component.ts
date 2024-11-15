@@ -23,6 +23,7 @@ rentalContractId:number = this.active.snapshot.params["rentalContractId"];
       console.log(res);
     })
   }
+  
 
   //loại bỏ navbar đi đến luôn phần content
 

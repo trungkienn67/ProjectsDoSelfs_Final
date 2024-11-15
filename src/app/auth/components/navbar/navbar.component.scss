@@ -698,3 +698,76 @@ nav {
   background-color: #f0f0f0;
   color: #000;
 }
+
+/* Sidebar enhancements */
+.main-sidebar {
+  background-color: #1d2c3b; /* Màu nền sidebar tối hơn */
+}
+.nav-sidebar .nav-item:hover .nav-link, .nav-sidebar .nav-link.active {
+  background-color: #3b5998; /* Màu sáng khi hover */
+  color: #fff;
+}
+.nav-icon {
+  color: #dfe4ea; /* Màu biểu tượng sidebar */
+}
+.nav-icon:hover {
+  color: #1abc9c; /* Đổi màu khi hover */
+}
+/* Header enhancements */
+.content-header h1 {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #1d2c3b;
+}
+.breadcrumb-item a {
+  color: #3498db; /* Màu liên kết trong breadcrumb */
+}
+.breadcrumb-item a:hover {
+  color: #2980b9; /* Màu sáng hơn khi hover */
+}
+/* Content enhancements */
+.content-wrapper {
+  padding: 20px;
+  background-color: #f8f9fa;
+}
+.container-fluid {
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+/* Footer enhancements */
+.main-footer {
+  background-color: #1d2c3b;
+  color: #dfe4ea;
+  padding: 10px 20px;
+}
+.main-footer a {
+  color: #3498db;
+}
+.main-footer a:hover {
+  color: #1abc9c;
+}
+/* Logout link */
+.breadcrumb-item a[click] {
+  color: #e74c3c;
+  cursor: pointer;
+  font-weight: bold;
+}
+.breadcrumb-item a[click]:hover {
+  color: #c0392b;
+  text-decoration: underline;
+}
+/* Increase spacing between sidebar items */
+.nav-sidebar .nav-item {
+  margin-bottom: 20px; /* Tạo khoảng cách giữa các mục */
+}
+
+.nav-sidebar .nav-link {
+  padding: 8px 15px; /* Tăng padding để mục menu thoáng hơn */
+  border-radius: 5px; /* Bo góc nhẹ để trông mềm mại hơn */
+}
+
+.nav-sidebar .nav-link:hover {
+  background-color: #3b5998; /* Giữ lại hiệu ứng hover */
+}

@@ -15,7 +15,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let booking of bookings" style="border-bottom: 1px solid #ddd;">
+        <tr *ngFor="let booking of bookings | paginate: { itemsPerPage: 10, currentPage: p }" style="border-bottom: 1px solid #ddd;">
           <td style="padding: 10px;">{{booking.username}}</td>
           <td style="padding: 10px;">{{booking.email}}</td>
           <td style="padding: 10px;">{{booking.fromDate | date: 'MMM d, y'}}</td>
@@ -44,4 +44,16 @@
       </tbody>
     </table>
   </nz-spin>
+      <!-- Thanh chuyển trang cố định dưới đáy trang -->
+      <div class="pagination-container">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+  <style>
+    .pagination-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      width: 100%;
+  }
+  </style>
 </div>

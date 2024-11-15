@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
         StorageService.saveUser(user);
         StorageService.saveToken(res.jwt);
         if(StorageService.isAdminLoggedIn()){
-          this.route.navigateByUrl("/admin/dashboard");
+          this.route.navigateByUrl("/admin/data-dashboard");
         } else if(StorageService.isCustomerLoggedIn()){
           this.route.navigateByUrl("/customer/dashboard");
         }else{

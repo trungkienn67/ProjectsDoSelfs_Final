@@ -11,7 +11,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let comment of comments">
+      <tr *ngFor="let comment of comments | paginate: { itemsPerPage: 8, currentPage: p }">
         <td class="username">{{ comment.username }}</td>
         <td class="rating">
           <span *ngFor="let star of [].constructor(5); let i = index">
@@ -24,4 +24,16 @@
     </tbody>
   </table>
 </nz-spin>
+    <!-- Thanh chuyển trang cố định dưới đáy trang -->
+    <div class="pagination-container">
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+<style>
+  .pagination-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    width: 100%;
+}
+</style>
 </div>
