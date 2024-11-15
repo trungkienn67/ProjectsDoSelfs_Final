@@ -10,18 +10,16 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class TotalCarComponent implements OnInit {
 
 
+  name: string = '';   // Lưu trữ tên xe muốn tìm kiếm
+
   listOfName: any;
   cars:any[]=[];
   p: number = 1;
-  searchForm!:FormGroup;
   constructor(private sv:AdminService,private fb:FormBuilder) { }
 
   ngOnInit(): void {
     this.getAllCar();
-    this.searchForm = this.fb.group({
-      name:[null]
-    })
-    this.searchCarByName();
+
   }
 
   getAllCar(){
@@ -36,15 +34,25 @@ export class TotalCarComponent implements OnInit {
   }
 
 
-  searchCarByName(){
-    this.sv.searchCarByName(this.searchForm.value).subscribe((res)=>{
-      console.log(res);
-      this.cars = res;
-      res.carDtoList.forEach((element: { processedImg: string; returnedImage: string; }) => {
-        element.processedImg = 'data:image/jpeg;base64,' + element.returnedImage;
-        this.cars.push(element);
-      });
-    })
+  searchCarByName(name: string) {
+    if (name.trim() === '') {
+      console.log('Tên xe không được để trống');
+      return;
+    }
+  
+    this.sv.searchCarByName(name).subscribe(
+      (res) => {
+        console.log(res);
+        this.cars=res;
+        this.cars = res.map((element: { processedImg: string; returnedImage: string; }) => ({
+          ...element,
+          processedImg: 'data:image/jpeg;base64,' + element.returnedImage
+        }));
+            },
+      (error) => {
+        console.error('Lỗi khi tìm kiếm:', error);
+      }
+    );
   }
 
 }

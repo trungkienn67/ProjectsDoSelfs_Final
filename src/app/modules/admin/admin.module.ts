@@ -16,7 +16,7 @@ import { NzMessageModule } from 'ng-zorro-antd/message'; // Import module này
 import {NzSelectModule} from 'ng-zorro-antd/select';
 import {NzTimePickerModule} from 'ng-zorro-antd/time-picker';
 import {NzDatePickerModule} from 'ng-zorro-antd/date-picker';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UpdateCarComponent } from './component/update-car/update-car.component';
 import { GetBookingsComponent } from './component/get-bookings/get-bookings.component';
 import {NzTableModule} from 'ng-zorro-antd/table';
@@ -62,8 +62,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     AdminRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-
-
+    FormsModule,
     NzSpinModule,
     NzFormModule,
     NzButtonModule,

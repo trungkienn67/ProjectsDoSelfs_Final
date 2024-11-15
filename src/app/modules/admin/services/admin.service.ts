@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { StorageService } from 'src/app/auth/services/storage/storage.service';
@@ -102,9 +102,13 @@ export class AdminService {
   getRevenue():Observable<any>{
     return this.http.get(BASIC_URL + '/api/admin/monthly-revenue',{headers:this.createAuthorizationHeader()});
   }
-
-  searchCarByName(searchCarDto:any):Observable<any>{
-    return this.http.post(BASIC_URL + `/api/admin/search`,searchCarDto,{headers:this.createAuthorizationHeader()});
+  searchCarByName(name: string): Observable<any[]> {
+  
+    const params = new HttpParams().set('name', name);
+  
+    const headers = this.createAuthorizationHeader();
+  
+    return this.http.get<any[]>(`${BASIC_URL}/api/admin/search`, { headers:this.createAuthorizationHeader(), params });
   }
   getPieChartCar():Observable<any>{
     return this.http.get(BASIC_URL + '/api/admin/car-type-data',{headers:this.createAuthorizationHeader()});
