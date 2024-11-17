@@ -19,46 +19,22 @@
 .chart-container {
   display: flex;
   align-items: flex-end;
-<<<<<<< HEAD
   gap: 15px;
   flex-grow: 1;  /* Giúp biểu đồ cột chiếm toàn bộ không gian còn lại */
-=======
-  position: relative;
-  height: 300px;
-  padding: 10px; /* Thêm khoảng trống để tránh sát mép */
->>>>>>> 128f330fcb735809bd888c7ad0140e0e05e4bdc6
 }
 
 .y-axis {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-<<<<<<< HEAD
   height: 300px;  /* Đặt chiều cao của trục Y */
   font-size: 14px;
   color: #777;
-=======
-  text-align: right;
-  margin-right: 15px; /* Khoảng cách giữa trục Y và biểu đồ */
-  font-size: 13px;
-  font-weight: 500;
-  color: #555;
-  height: 100%; /* Đảm bảo trục Y phủ toàn chiều cao biểu đồ */
-  padding-top: 5px; /* Thêm khoảng cách trên cùng */
-  padding-bottom: 5px; /* Thêm khoảng cách dưới cùng */
-}
-
-.y-axis span {
-  margin-bottom: 8px; /* Tăng khoảng cách giữa các tick */
->>>>>>> 128f330fcb735809bd888c7ad0140e0e05e4bdc6
 }
 
 .chart {
   display: flex;
-  flex-grow: 1;
-  justify-content: space-between;
   align-items: flex-end;
-<<<<<<< HEAD
   gap: 10px;
   height: 300px;
   padding: 15px;
@@ -73,86 +49,21 @@
   position: relative;
   border-radius: 6px 6px 0 0;
   transition: height 0.3s;
-=======
-  height: 100%;
-  position: relative;
-}
-
-.bar {
-  width: 12%; /* Giảm chiều rộng để khoảng cách giữa cột thông thoáng */
-  background-color: #4caf50;
-  position: relative;
-  border-radius: 8px; /* Tăng độ bo tròn cho đẹp */
-  transition: all 0.3s ease-in-out; /* Hiệu ứng khi hover */
-}
-
-.bar:hover {
-  background-color: #45a049; /* Màu khi hover */
-  transform: scaleY(1.1); /* Phóng to cột */
->>>>>>> 128f330fcb735809bd888c7ad0140e0e05e4bdc6
 }
 
 .bar-value {
   position: absolute;
-<<<<<<< HEAD
   bottom: 100%;
   left: 50%;
   transform: translateX(-50%);
   font-size: 12px;
   color: #333;
-=======
-  top: -25px;
-  font-size: 11px;
-  font-weight: bold;
-  color: #444;
-  text-align: center;
-  width: 100%;
->>>>>>> 128f330fcb735809bd888c7ad0140e0e05e4bdc6
 }
 
 .x-axis-labels {
   display: flex;
   justify-content: space-between;
-<<<<<<< HEAD
   margin: 10px 0;
   font-size: 14px;
   color: #555;
-=======
-  margin-top: 10px;
-  font-size: 12px; /* Thu nhỏ font để gọn hơn */
-  font-weight: 500;
-  color: #666;
-}
-
-.pie-chart-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  padding: 10px;
-}
-
-.pie-chart-container canvas {
-  max-width: 200px;
-  max-height: 200px;
-  margin: auto;
-}
-
-.pie-legend {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 10px;
-  gap: 15px; /* Tăng khoảng cách giữa các mục legend */
-}
-
-.color-box {
-  display: inline-block;
-  width: 18px; /* Tăng kích thước box */
-  height: 18px;
-  border-radius: 50%;
-  margin-right: 10px;
-  border: 1px solid #ccc; /* Thêm đường viền */
->>>>>>> 128f330fcb735809bd888c7ad0140e0e05e4bdc6
 }
