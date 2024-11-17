@@ -17,16 +17,22 @@ export class CustomerComponent implements OnInit {
   ngOnInit() {
     this.getAllCars();
   }
-  getAllCars(){
-    this.sv.getAllCars().subscribe((res)=>{
+  getAllCars(): void {
+    this.sv.getAllCars().subscribe((res) => {
       console.log(res);
-      this.isSpinning =true;
       res.forEach((element: { processedImg: string; returnedImage: string; }) => {
         element.processedImg = 'data:image/jpeg;base64,' + element.returnedImage;
         this.cars.push(element);
       });
-    })
+
+    });
   }
+
+  onSearch(event: Event): void {
+    const searchValue = (event.target as HTMLInputElement).value.toLowerCase();
+    const regex = new RegExp(searchValue, 'i'); // 'i' cho phép không phân biệt hoa thường
+  }
+  searchText: string = ''; // Thêm biến lưu giá trị ô tìm kiế
 
   //loại bỏ navbar đi đến luôn phần content
 

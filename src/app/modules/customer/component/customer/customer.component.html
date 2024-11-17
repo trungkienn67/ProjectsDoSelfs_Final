@@ -32,6 +32,12 @@
 </body> -->
 
 <body>
+          <!-- Thanh tìm kiếm -->
+          <div class="search-container">
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+            <input type="text" placeholder="Search cars..." (input)="onSearch($event)">
+            <i class="fa fa-search"></i>
+        </div>
   <div class="container">
       <div class="card" *ngFor="let item of cars | paginate: { itemsPerPage: 4, currentPage: p }">
           <div class="imgBx">

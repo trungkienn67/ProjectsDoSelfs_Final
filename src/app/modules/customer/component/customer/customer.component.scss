@@ -212,3 +212,41 @@ body {
     transform: translateY(0px);
     transition-delay: .7s;
 }
+//
+.search-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    position: relative; /* Để định vị biểu tượng kính lúp */
+}
+
+.search-container input {
+    width: 50%;
+    padding: 10px 40px 10px 15px; /* Chừa không gian cho biểu tượng */
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    outline: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: border 0.3s;
+}
+
+.search-container input:focus {
+    border: 1px solid #1BBFE9;
+}
+
+.search-container .fa-search {
+    position: absolute;
+    right: 26%; /* Đặt biểu tượng bên trong ô tìm kiếm */
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #888;
+    pointer-events: none; /* Để không làm ảnh hưởng đến hành động nhập văn bản */
+    transition: color 0.3s;
+}
+
+.search-container input:focus + .fa-search {
+    color: #1BBFE9;
+}
