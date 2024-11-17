@@ -1,36 +1,53 @@
+.charts-container {
+  display: flex;
+  justify-content: space-between;  /* Sắp xếp biểu đồ theo chiều ngang */
+  gap: 20px;                      /* Khoảng cách giữa hai biểu đồ */
+  max-width: 1200px;               /* Đặt chiều rộng tối đa của container */
+  margin: 0 auto;                 /* Căn giữa container */
+}
+
+.chart-card {
+  flex: 1 1 48%;                        /* Đảm bảo mỗi biểu đồ chiếm ít nhất 48% không gian, có thể co lại khi không gian nhỏ */
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;              /* Đảm bảo padding không ảnh hưởng đến chiều rộng */
+  min-width: 300px;                    /* Đảm bảo biểu đồ không co lại quá nhỏ */
+}
+
 .chart-container {
   display: flex;
   align-items: flex-end;
   gap: 15px;
-  max-width: 700px; /* Reduced the width */
-  margin: 0 auto;
+  flex-grow: 1;  /* Giúp biểu đồ cột chiếm toàn bộ không gian còn lại */
 }
 
 .y-axis {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 300px; /* Reduced the height */
-  font-size: 14px; /* Slightly smaller font size */
+  height: 300px;  /* Đặt chiều cao của trục Y */
+  font-size: 14px;
   color: #777;
 }
 
 .chart {
   display: flex;
   align-items: flex-end;
-  gap: 10px; /* Slightly reduced the gap between bars */
-  height: 300px; /* Reduced the height */
+  gap: 10px;
+  height: 300px;
   padding: 15px;
-  background-color: #fafafa;
-  border: 1px solid #ddd;
-  border-radius: 6px; /* Slightly rounded corners */
+  // background-color: #fafafa;
+  // border: 1px solid #ddd;
+  // border-radius: 6px;
 }
 
 .bar {
-  width: 40px; /* Reduced bar width */
+  width: 40px;
   background-color: #4CAF50;
   position: relative;
-  border-radius: 6px 6px 0 0; /* Rounded top corners */
+  border-radius: 6px 6px 0 0;
   transition: height 0.3s;
 }
 
@@ -39,15 +56,14 @@
   bottom: 100%;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 12px; /* Slightly smaller font size */
+  font-size: 12px;
   color: #333;
 }
 
 .x-axis-labels {
   display: flex;
   justify-content: space-between;
-  max-width: 700px; /* Reduced the width */
-  margin: 10px auto;
-  font-size: 14px; /* Slightly smaller font size */
+  margin: 10px 0;
+  font-size: 14px;
   color: #555;
 }

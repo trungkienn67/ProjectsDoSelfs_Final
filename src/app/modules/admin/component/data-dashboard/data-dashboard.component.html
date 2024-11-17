@@ -15,7 +15,6 @@
     .analytics-report {
       max-width: 1200px;
       margin: 20px auto;
-      padding: 20px;
       background-color: #ffffff;
       border-radius: 12px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -148,47 +147,48 @@
         <p id="average-score">{{AllData.totalRevenue | currency}}</p>
       </div>
     </div>
-<!-- chart -->
-
-
-<h1>Revenue</h1>
-<div class="chart-container">
-  <!-- Trục y với các giá trị hiển thị từ 0 đến 100 -->
-  <div class="y-axis">
-    <span *ngFor="let tick of [100, 80, 60, 40, 20, 0]">{{ tick }}</span>
-  </div>
-
-  <!-- Khu vực biểu đồ cột -->
-  <div class="chart">
-    <div *ngFor="let value of chartData.values; let i = index" class="bar" [style.height.%]="value">
-      <span class="bar-value">{{ chartData.values[i] | currency }}</span>
+    
+    <div class="charts-container">
+      <!-- Column Chart -->
+      <div class="chart-card">
+        <h4>Revenue</h4>
+        <div class="chart-container">
+          <!-- Y-axis -->
+          <div class="y-axis">
+            <span *ngFor="let tick of [100, 80, 60, 40, 20, 0]">{{ tick }}</span>
+          </div>
+          <!-- Column Chart Area -->
+          <div class="chart">
+            <div *ngFor="let value of chartData.values; let i = index" class="bar" [style.height.%]="value">
+              <span class="bar-value">{{ chartData.values[i] | currency }}</span>
+            </div>
+          </div>
+        </div>
+        <!-- X-axis labels -->
+        <div class="x-axis-labels">
+          <span *ngFor="let label of chartData.labels">{{ label }}</span>
+        </div>
+      </div>
+    
+      <!-- Pie Chart -->
+      <div class="chart-card">
+        <h4>Cars</h4>
+        <div style="display: flex; flex-direction: column; align-items: center;">
+          <canvas baseChart
+                  [data]="pieChartData"
+                  [type]="pieChartType"
+                  [options]="pieChartOptions"
+                  [labels]="pieChartLabels">
+          </canvas>
+        </div>
+                <!-- <div *ngFor="let label of pieChartLabels; let i = index" style="display: flex; align-items: center; margin-top: 10px;">
+          <span [style.background-color]="pieChartData.datasets[0].backgroundColor[i]" style="width: 20px; height: 20px; border-radius: 50%; margin-right: 10px;"></span>
+          <p>{{ label }}</p>
+        </div> -->
+      </div>
     </div>
-  </div>
-</div>
-
-<!-- Nhãn cho trục x dưới biểu đồ -->
-<div class="x-axis-labels">
-  <span *ngFor="let label of chartData.labels">{{ label }}</span>
-</div>
-
-<!--  -->
-
-
-<!-- Pie Chart -->
-
-<h1>Cars</h1>
- <div style="display: flex; flex-direction: column; align-items: center;">
-  <canvas baseChart
-          [data]="pieChartData"
-          [type]="pieChartType"
-          [options]="pieChartOptions"
-          [labels]="pieChartLabels">
-  </canvas>
-</div>
-<div *ngFor="let label of pieChartLabels; let i = index" style="display: flex; align-items: center; margin-top: 10px;">
-  <span [style.background-color]="pieChartData.datasets[0].backgroundColor[i]" style="width: 20px; height: 20px; border-radius: 50%; margin-right: 10px;"></span>
-  <p>{{ label }}</p>
-</div>
+    
+    
 <!-- // -->
   </div>
 </body>
