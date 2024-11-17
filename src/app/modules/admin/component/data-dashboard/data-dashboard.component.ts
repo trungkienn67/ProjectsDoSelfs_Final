@@ -14,21 +14,21 @@ export class DataDashboardComponent implements OnInit {
 
   public chartData: any = { labels: [], values: [] };
 
-  public revenueChart: any;// Khai báo revenueChart như một thuộc tính kiểu Chart | null
+  public revenueChart: any;
 
 
   pieChartLabels: string[] = [];
   pieChartColors: string[] = [
-    'red',      // Màu cho xe loại Petrol
-    'green',    // Màu cho xe loại Hybrid
-    'blue',     // Màu cho xe loại Electric
-    'yellow',   // Màu cho xe loại CNG
-    'orange',   // Màu cho xe loại Diesel
-    'purple',   // Màu cho xe loại SUV
-    'pink',     // Màu cho xe loại Sedan
-    'brown',    // Màu cho xe loại Truck
-    'grey',     // Màu cho xe loại Van
-    'lightblue' // Màu cho xe loại Coupe
+    'red',      
+    'green',    
+    'blue',     
+    'yellow',  
+    'orange',   
+    'purple',   
+    'pink',     
+    'brown',   
+    'grey',     
+    'lightblue' 
   ];
   
   pieChartData: any = {};

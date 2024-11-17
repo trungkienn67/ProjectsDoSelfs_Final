@@ -12,7 +12,7 @@
     <div class="card-header">
       <div class="row">
         <div class="col-md-6">
-          <form  class="form-inline" (ngSubmit)="searchCarByName(name)">
+          <form  class="form-inline" >
             <div class="input-group input-group-sm">
               <input
                 type="text"
@@ -21,9 +21,11 @@
                 placeholder="Search by name..."
                 [(ngModel)]="name" 
                 name="name"
+                (ngModelChange)="searchCarByName(name)"
+
                 />
               <div class="input-group-append">
-                <button class="btn btn-navbar">
+                <button class="btn btn-navbar" (click)="searchCarByName(name)" >
                   <i class="fas fa-search"></i>
                 </button>
               </div>

@@ -147,6 +147,7 @@
         <p id="average-score">{{AllData.totalRevenue | currency}}</p>
       </div>
     </div>
+<<<<<<< HEAD
     
     <div class="charts-container">
       <!-- Column Chart -->
@@ -189,6 +190,55 @@
     </div>
     
     
+=======
+<!-- chart -->
+
+
+<h1>Analytics and Reporting</h1>
+<div class="charts-container">
+  <!-- Biểu đồ cột -->
+  <div class="chart-card">
+    <h4>Revenue</h4>
+    <div class="chart-container">
+      <!-- Trục y với các giá trị hiển thị từ 0 đến 100 -->
+      <div class="y-axis">
+        <span *ngFor="let tick of [100, 80, 60, 40, 20, 0]">{{ tick }}</span>
+      </div>
+
+      <!-- Khu vực biểu đồ cột -->
+      <div class="chart">
+        <div *ngFor="let value of chartData.values; let i = index" class="bar" [style.height.%]="value">
+          <span class="bar-value">{{ chartData.values[i] | currency }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nhãn cho trục x dưới biểu đồ -->
+    <div class="x-axis-labels">
+      <span *ngFor="let label of chartData.labels">{{ label }}</span>
+    </div>
+  </div>
+
+  <!-- Biểu đồ tròn -->
+  <div class="chart-card">
+    <h4>Cars</h4>
+    <div class="pie-chart-container">
+      <canvas baseChart
+              [data]="pieChartData"
+              [type]="pieChartType"
+              [options]="pieChartOptions"
+              [labels]="pieChartLabels">
+      </canvas>
+      <div *ngFor="let label of pieChartLabels; let i = index" class="pie-legend">
+        <span [style.background-color]="pieChartData.datasets[0].backgroundColor[i]" class="color-box"></span>
+        <p>{{ label }}</p>
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+>>>>>>> 128f330fcb735809bd888c7ad0140e0e05e4bdc6
 <!-- // -->
   </div>
 </body>

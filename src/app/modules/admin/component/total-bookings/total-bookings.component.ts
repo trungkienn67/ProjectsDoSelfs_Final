@@ -28,7 +28,7 @@ export class TotalBookingsComponent implements OnInit {
 
   searchTotal(id: number | null) {
     if (!id) {
-      this.getAllBookACar(); // Hiển thị toàn bộ danh sách nếu input trống
+      this.getAllBookACar(); 
       return;
     }
   
